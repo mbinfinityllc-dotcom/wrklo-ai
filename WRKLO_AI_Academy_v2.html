@@ -1,0 +1,2599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WRKLO.ai — Master AI Automation. Build Your Agency.</title>
+<meta name="description" content="The premium AI automation academy. Learn Make.com, n8n, Zapier, AI agents, and real-world automation systems. Start free.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════
+   WRKLO.ai — PREMIUM AI AUTOMATION ACADEMY
+   Full Design System + Global Styles
+═══════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg0:#06060a; --bg1:#0c0c12; --bg2:#11111a; --bg3:#181824;
+  --bg4:#1f1f2e; --bg5:#272736; --bg6:#30304a;
+  --line:rgba(255,255,255,0.055); --line2:rgba(255,255,255,0.1);
+  --line3:rgba(255,255,255,0.18);
+  --t1:#eeeef8; --t2:rgba(238,238,248,0.62); --t3:rgba(238,238,248,0.36); --t4:rgba(238,238,248,0.18);
+  --ind:#5b5ef4; --ind2:#4a4de0; --ind3:#7b7ef7; --ind4:#a5a7fa;
+  --ind-lo:rgba(91,94,244,0.09); --ind-md:rgba(91,94,244,0.18); --ind-hi:rgba(91,94,244,0.32);
+  --green:#10b981; --grn-lo:rgba(16,185,129,0.1); --grn-md:rgba(16,185,129,0.2);
+  --amber:#f59e0b; --amb-lo:rgba(245,158,11,0.1); --amb-md:rgba(245,158,11,0.2);
+  --red:#ef4444; --red-lo:rgba(239,68,68,0.1);
+  --cyan:#06b6d4; --cyn-lo:rgba(6,182,212,0.1);
+  --f-head:'Outfit',sans-serif; --f-body:'DM Sans',sans-serif; --f-mono:'JetBrains Mono',monospace;
+  --r-xs:4px; --r-sm:7px; --r:11px; --r-lg:16px; --r-xl:22px; --r-2xl:30px;
+  --sh-sm:0 1px 4px rgba(0,0,0,0.5); --sh:0 4px 24px rgba(0,0,0,0.55),0 1px 4px rgba(0,0,0,0.4);
+  --sh-lg:0 16px 64px rgba(0,0,0,0.65),0 4px 20px rgba(0,0,0,0.5);
+  --sh-ind:0 6px 28px rgba(91,94,244,0.3); --sh-ind-lg:0 12px 48px rgba(91,94,244,0.35);
+  --nav-h:64px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:15px;scroll-behavior:smooth}
+body{background:var(--bg0);color:var(--t1);font-family:var(--f-body);line-height:1.65;min-height:100vh;overflow-x:hidden}
+::-webkit-scrollbar{width:3px;background:var(--bg1)}
+::-webkit-scrollbar-thumb{background:var(--bg5);border-radius:2px}
+::selection{background:var(--ind-md);color:var(--ind4)}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:var(--f-body);border:none;outline:none}
+input,textarea,select{font-family:var(--f-body);outline:none}
+img{display:block;max-width:100%}
+
+/* ── NOISE GRAIN OVERLAY ── */
+body::after{content:'';position:fixed;inset:0;z-index:9999;
+background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+opacity:0.02;pointer-events:none}
+
+/* ── PAGE SYSTEM ── */
+.page{display:none!important}
+.page.active{display:block!important;animation:pageIn .28s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes pageIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── FADE IN ANIMATIONS ── */
+.fi{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+.fi.visible{opacity:1;transform:none}
+.fi-1{transition-delay:.08s} .fi-2{transition-delay:.16s} .fi-3{transition-delay:.24s}
+.fi-4{transition-delay:.32s} .fi-5{transition-delay:.4s}
+
+/* ── LAYOUT ── */
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+.container-sm{max-width:740px;margin:0 auto;padding:0 28px}
+.container-lg{max-width:1320px;margin:0 auto;padding:0 28px}
+.section{padding:100px 0}
+.section-sm{padding:60px 0}
+hr.divider{border:none;border-top:1px solid var(--line);margin:0}
+
+/* ── TYPOGRAPHY ── */
+.t-display{font-family:var(--f-head);font-weight:900;line-height:.92;letter-spacing:-3px;font-size:clamp(50px,8vw,114px)}
+.t-h2{font-family:var(--f-head);font-weight:800;line-height:.96;letter-spacing:-1.8px;font-size:clamp(34px,4.5vw,62px)}
+.t-h3{font-family:var(--f-head);font-weight:700;font-size:20px;letter-spacing:-.4px;line-height:1.2}
+.t-label{font-family:var(--f-mono);font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ind3)}
+.t-body{font-size:15px;color:var(--t2);line-height:1.75}
+.ind{color:var(--ind3)} .grn{color:var(--green)} .amb{color:var(--amber)} .red{color:var(--red)}
+.muted{color:var(--t2)} .dim{color:var(--t3)} .ghost{color:var(--t4)}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--f-body);font-size:14px;font-weight:600;padding:11px 22px;border-radius:var(--r);transition:all .18s;white-space:nowrap;position:relative;overflow:hidden}
+.btn::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,0),rgba(255,255,255,.04));opacity:0;transition:opacity .2s}
+.btn:hover::after{opacity:1}
+.btn-ind{background:var(--ind);color:#fff;box-shadow:var(--sh-ind)}
+.btn-ind:hover{background:var(--ind2);transform:translateY(-2px);box-shadow:var(--sh-ind-lg)}
+.btn-ghost{background:transparent;color:var(--t1);border:1px solid var(--line2)}
+.btn-ghost:hover{border-color:var(--line3);background:var(--bg3)}
+.btn-surface{background:var(--bg4);color:var(--t1);border:1px solid var(--line)}
+.btn-surface:hover{background:var(--bg5);border-color:var(--line2)}
+.btn-danger{background:var(--red-lo);color:var(--red);border:1px solid rgba(239,68,68,.2)}
+.btn-lg{padding:14px 32px;font-size:15px;border-radius:var(--r-lg)}
+.btn-sm{padding:6px 13px;font-size:12px;border-radius:var(--r-sm)}
+.btn-xl{padding:16px 40px;font-size:16px;border-radius:var(--r-xl);font-weight:700}
+
+/* ── BADGES ── */
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:.3px}
+.badge-ind{background:var(--ind-lo);color:var(--ind3);border:1px solid rgba(91,94,244,.2)}
+.badge-grn{background:var(--grn-lo);color:var(--green);border:1px solid rgba(16,185,129,.2)}
+.badge-amb{background:var(--amb-lo);color:var(--amber);border:1px solid rgba(245,158,11,.2)}
+.badge-red{background:var(--red-lo);color:var(--red);border:1px solid rgba(239,68,68,.2)}
+.badge-cyn{background:var(--cyn-lo);color:var(--cyan);border:1px solid rgba(6,182,212,.2)}
+.badge-surface{background:var(--bg4);color:var(--t2);border:1px solid var(--line)}
+
+/* ── CARDS ── */
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r-lg)}
+.card-hover{transition:transform .22s,box-shadow .22s,border-color .22s}
+.card-hover:hover{transform:translateY(-3px);box-shadow:var(--sh);border-color:var(--line2)}
+.card-glow:hover{box-shadow:var(--sh),0 0 0 1px rgba(91,94,244,.2),0 8px 40px rgba(91,94,244,.12)}
+
+/* ── INPUTS ── */
+.input{width:100%;background:var(--bg3);border:1px solid var(--line2);border-radius:var(--r);padding:10px 14px;font-size:14px;color:var(--t1);transition:border-color .15s}
+.input:focus{border-color:var(--ind);box-shadow:0 0 0 3px var(--ind-lo)}
+.input::placeholder{color:var(--t4)}
+.input-icon-wrap{position:relative}
+.input-icon-wrap .input{padding-left:38px}
+.input-icon-wrap .icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--t3);font-size:16px}
+
+/* ── PROGRESS ── */
+.progress-track{height:4px;background:var(--bg5);border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--ind),var(--ind3));border-radius:2px;transition:width .5s ease}
+.progress-track.sm{height:3px}
+.progress-track.lg{height:6px}
+
+/* ── DIFFICULTY DOTS ── */
+.diff{display:flex;gap:3px;align-items:center}
+.diff-dot{width:7px;height:7px;border-radius:50%;background:var(--bg5)}
+.diff-dot.on.beginner{background:var(--green)}
+.diff-dot.on.intermediate{background:var(--amber)}
+.diff-dot.on.advanced{background:var(--red)}
+
+/* ── VIDEO PLAYER WRAPPER ── */
+.video-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;background:var(--bg1);border-radius:var(--r-lg)}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:var(--r-lg)}
+.video-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(6,6,10,.7);border-radius:var(--r-lg);cursor:pointer;transition:background .2s;z-index:1}
+.video-overlay:hover{background:rgba(6,6,10,.5)}
+.play-btn{width:72px;height:72px;background:var(--ind);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:var(--sh-ind-lg);transition:transform .2s}
+.video-overlay:hover .play-btn{transform:scale(1.08)}
+
+/* ── NAV ── */
+#nav{position:fixed;top:0;left:0;right:0;z-index:800;height:var(--nav-h);background:rgba(6,6,10,.88);backdrop-filter:blur(20px) saturate(1.3);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;height:100%;gap:28px;padding:0 28px;max-width:1300px;margin:0 auto}
+.nav-logo{display:flex;align-items:center;gap:9px;flex-shrink:0;cursor:pointer}
+.nav-logo-mark{width:34px;height:34px;background:var(--ind);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-family:var(--f-head);font-size:15px;font-weight:900;color:#fff;position:relative;overflow:hidden}
+.nav-logo-mark::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15) 0%,transparent 60%)}
+.nav-logo-text{font-family:var(--f-head);font-size:18px;font-weight:800;color:var(--t1);letter-spacing:-.5px}
+.nav-logo-text em{color:var(--ind3);font-style:normal}
+.nav-links{display:flex;gap:2px;flex:1}
+.nav-link{font-size:13px;font-weight:500;color:var(--t3);padding:6px 13px;border-radius:var(--r-sm);background:none;transition:all .14s;position:relative}
+.nav-link:hover{color:var(--t1);background:var(--bg3)}
+.nav-link.active{color:var(--t1);background:var(--bg3)}
+.nav-link.active::after{content:'';position:absolute;bottom:2px;left:50%;transform:translateX(-50%);width:16px;height:2px;background:var(--ind);border-radius:1px}
+.nav-right{display:flex;align-items:center;gap:10px;margin-left:auto}
+.nav-search-btn{width:34px;height:34px;background:var(--bg3);border:1px solid var(--line);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;color:var(--t3);font-size:15px;transition:all .15s}
+.nav-search-btn:hover{color:var(--t1);border-color:var(--line2);background:var(--bg4)}
+.nav-plan{font-family:var(--f-mono);font-size:10px;font-weight:600;padding:4px 10px;border-radius:100px;letter-spacing:.5px;text-transform:uppercase}
+.plan-free{background:var(--bg4);color:var(--t3);border:1px solid var(--line)}
+.plan-launch{background:var(--grn-lo);color:var(--green);border:1px solid var(--grn-md)}
+.plan-builder{background:var(--ind-lo);color:var(--ind3);border:1px solid rgba(91,94,244,.25)}
+.plan-agency{background:var(--amb-lo);color:var(--amber);border:1px solid var(--amb-md)}
+.nav-prog{display:flex;align-items:center;gap:8px;background:var(--bg3);border:1px solid var(--line);padding:5px 12px;border-radius:100px}
+.nav-prog-track{width:60px;height:3px;background:var(--bg5);border-radius:2px;overflow:hidden}
+.nav-prog-fill{height:100%;background:var(--ind);border-radius:2px;transition:width .5s}
+.nav-prog-text{font-size:11px;font-weight:700;color:var(--t3)}
+.nav-prog-text span{color:var(--ind3)}
+.hamburger{display:none;flex-direction:column;gap:4px;background:none;padding:6px;border-radius:var(--r-sm)}
+.hamburger span{width:20px;height:2px;background:var(--t2);border-radius:1px;transition:all .2s}
+
+/* ── HERO SECTION ── */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:var(--nav-h)}
+.hero-bg{position:absolute;inset:0}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;opacity:.6}
+.hero-glow-1{position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(91,94,244,.08) 0%,transparent 70%);top:-100px;left:-200px}
+.hero-glow-2{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(16,185,129,.06) 0%,transparent 70%);bottom:-50px;right:-100px}
+/* Animated circuit lines */
+.circuit{position:absolute;inset:0;overflow:hidden}
+.circuit-line{position:absolute;background:linear-gradient(90deg,transparent,var(--ind-lo),transparent);height:1px;animation:circ linear infinite}
+@keyframes circ{from{transform:translateX(-100%)}to{transform:translateX(100vw)}}
+.circuit-dot{position:absolute;width:4px;height:4px;background:var(--ind);border-radius:50%;animation:dot linear infinite;box-shadow:0 0 8px var(--ind)}
+@keyframes dot{from{transform:translateX(-20px);opacity:0}50%{opacity:1}to{transform:translateX(100vw);opacity:0}}
+.hero-content{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 28px 80px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--line2);padding:6px 14px 6px 8px;border-radius:100px;margin-bottom:28px}
+.eyebrow-dot{width:22px;height:22px;border-radius:50%;background:var(--ind-lo);border:1px solid rgba(91,94,244,.25);display:flex;align-items:center;justify-content:center}
+.eyebrow-dot span{width:8px;height:8px;background:var(--ind);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.hero-title{margin-bottom:22px}
+.hero-title .line-dim{color:transparent;-webkit-text-stroke:1.5px rgba(238,238,248,.18)}
+.hero-title .line-ind{color:var(--ind3)}
+.hero-sub{font-size:17px;color:var(--t2);line-height:1.78;max-width:560px;margin-bottom:40px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:52px}
+.hero-stats{display:flex;gap:36px;flex-wrap:wrap}
+.stat-item{}
+.stat-num{font-family:var(--f-head);font-size:36px;font-weight:900;color:var(--t1);line-height:1;letter-spacing:-1px}
+.stat-num em{color:var(--ind3);font-style:normal}
+.stat-lbl{font-size:12px;color:var(--t3);margin-top:3px}
+.hero-scroll{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--t4);margin-top:24px;position:absolute;bottom:32px;left:50%;transform:translateX(-50%);animation:scBounce 2s infinite}
+@keyframes scBounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+/* ── MARQUEE ── */
+.marquee-wrap{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:13px 0;background:var(--bg1)}
+.marquee-track{display:flex;gap:48px;white-space:nowrap;animation:marquee 32s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+.marquee-item{display:flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:11.5px;color:var(--t4);flex-shrink:0}
+.marquee-item::before{content:'';width:5px;height:5px;background:var(--ind);border-radius:50%;opacity:.6}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── COURSE CARDS ── */
+.courses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:48px}
+.course-card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;transition:all .22s;cursor:pointer;position:relative}
+.course-card:hover{transform:translateY(-4px);box-shadow:var(--sh);border-color:var(--line2)}
+.course-card.locked{opacity:.7}
+.course-card.locked::after{content:'🔒';position:absolute;top:14px;right:14px;font-size:14px;background:var(--bg4);border:1px solid var(--line2);border-radius:var(--r-sm);padding:3px 7px}
+.course-card-thumb{position:relative;height:170px;overflow:hidden;background:var(--bg3)}
+.course-card-thumb-img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.course-card:hover .course-card-thumb-img{transform:scale(1.04)}
+.course-card-thumb-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,var(--bg2));display:flex;align-items:center;justify-content:center}
+.course-card-thumb-icon{width:52px;height:52px;background:rgba(6,6,10,.8);backdrop-filter:blur(8px);border:1px solid var(--line2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px}
+.course-card-body{padding:18px 20px 20px}
+.course-card-meta{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.course-card-title{font-family:var(--f-head);font-size:16px;font-weight:700;color:var(--t1);line-height:1.3;margin-bottom:8px}
+.course-card-desc{font-size:13px;color:var(--t3);line-height:1.6;margin-bottom:14px}
+.course-card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--line)}
+.course-meta-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--t3)}
+
+/* ── LESSON PLAYER PAGE ── */
+.lesson-layout{display:grid;grid-template-columns:1fr 340px;gap:0;min-height:calc(100vh - var(--nav-h));padding-top:var(--nav-h)}
+.lesson-main{padding:32px 40px;overflow-y:auto;max-height:calc(100vh - var(--nav-h))}
+.lesson-sidebar{background:var(--bg1);border-left:1px solid var(--line);overflow-y:auto;max-height:calc(100vh - var(--nav-h));position:sticky;top:var(--nav-h)}
+.lesson-breadcrumb{font-size:12px;color:var(--t3);margin-bottom:16px;display:flex;align-items:center;gap:6px}
+.lesson-breadcrumb .sep{color:var(--t4)}
+.lesson-title-bar{margin-bottom:20px}
+.lesson-title{font-family:var(--f-head);font-size:clamp(22px,3vw,32px);font-weight:800;line-height:1.1;letter-spacing:-.5px;margin-bottom:10px}
+.lesson-meta-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.lesson-tag{font-size:11px;font-weight:600;padding:4px 11px;border-radius:100px;background:var(--bg4);color:var(--t2);border:1px solid var(--line)}
+.lesson-section{margin:28px 0}
+.lesson-section-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--t3);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.lesson-section-title::after{content:'';flex:1;height:1px;background:var(--line)}
+.lesson-highlight{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--ind);border-radius:0 var(--r) var(--r) 0;padding:16px 18px;margin:14px 0}
+.lesson-highlight p{font-size:14px;color:var(--t1);line-height:1.7}
+.lesson-step{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--ind-lo);border:1px solid rgba(91,94,244,.25);color:var(--ind3);font-family:var(--f-mono);font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.lesson-step p{font-size:14px;color:var(--t2);line-height:1.7}
+.lesson-step p strong{color:var(--t1);font-weight:600}
+.use-case-card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r-lg);padding:18px 20px}
+.ucc-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.ucc-title{font-family:var(--f-head);font-size:15px;font-weight:700;margin-bottom:6px}
+.ucc-body{font-size:13px;color:var(--t2);line-height:1.65}
+.code-block{background:var(--bg3);border:1px solid var(--line2);border-radius:var(--r);padding:16px;font-family:var(--f-mono);font-size:12px;color:var(--ind4);line-height:1.7;overflow-x:auto;white-space:pre-wrap;word-break:break-word;margin:12px 0}
+.code-block .comment{color:var(--t3)}
+.code-block .keyword{color:var(--cyan)}
+.code-block .string{color:var(--green)}
+.lesson-nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:36px;padding-top:24px;border-top:1px solid var(--line)}
+
+/* Sidebar playlist */
+.playlist-header{padding:18px 18px 12px;border-bottom:1px solid var(--line)}
+.playlist-title{font-family:var(--f-head);font-size:14px;font-weight:700;margin-bottom:8px}
+.playlist-prog{display:flex;align-items:center;gap:8px}
+.playlist-prog-track{flex:1;height:3px;background:var(--bg5);border-radius:2px;overflow:hidden}
+.playlist-prog-fill{height:100%;background:var(--ind);border-radius:2px;transition:width .5s}
+.playlist-prog-txt{font-size:10px;font-weight:700;color:var(--t3);font-family:var(--f-mono)}
+.playlist-module{border-bottom:1px solid var(--line)}
+.playlist-module-head{display:flex;align-items:center;gap:10px;padding:12px 18px;cursor:pointer;transition:background .12s}
+.playlist-module-head:hover{background:var(--bg2)}
+.pmh-num{font-family:var(--f-mono);font-size:10px;color:var(--t4);width:16px;flex-shrink:0}
+.pmh-title{font-size:12px;font-weight:600;color:var(--t2);flex:1}
+.pmh-count{font-size:10px;color:var(--t4);font-family:var(--f-mono)}
+.pmh-arrow{color:var(--t4);font-size:12px;transition:transform .18s}
+.playlist-module.open .pmh-arrow{transform:rotate(180deg)}
+.playlist-lessons{display:none}
+.playlist-module.open .playlist-lessons{display:block}
+.playlist-lesson{display:flex;align-items:center;gap:10px;padding:9px 18px 9px 44px;cursor:pointer;transition:background .12s;border-top:1px solid rgba(255,255,255,.03)}
+.playlist-lesson:hover{background:var(--bg2)}
+.playlist-lesson.active{background:var(--ind-lo);border-left:2px solid var(--ind)}
+.pl-check{width:18px;height:18px;border-radius:50%;border:1px solid var(--bg5);display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0}
+.pl-check.done{background:var(--grn-lo);border-color:var(--green);color:var(--green)}
+.playlist-lesson.active .pl-check{background:var(--ind-lo);border-color:var(--ind);color:var(--ind3)}
+.pl-title{font-size:12px;color:var(--t3);flex:1;line-height:1.35}
+.playlist-lesson.active .pl-title{color:var(--t1)}
+.pl-time{font-family:var(--f-mono);font-size:10px;color:var(--t4)}
+.pl-lock{font-size:11px;color:var(--t4)}
+
+/* ── DASHBOARD ── */
+.dash-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - var(--nav-h));padding-top:var(--nav-h)}
+.dash-sidebar{background:var(--bg1);border-right:1px solid var(--line);height:calc(100vh - var(--nav-h));position:sticky;top:var(--nav-h);overflow-y:auto;display:flex;flex-direction:column}
+.ds-user{padding:20px 18px 16px;border-bottom:1px solid var(--line)}
+.ds-avi{width:42px;height:42px;border-radius:50%;background:var(--ind-lo);border:2px solid rgba(91,94,244,.3);display:flex;align-items:center;justify-content:center;font-family:var(--f-head);font-size:16px;font-weight:800;color:var(--ind3)}
+.ds-name{font-size:14px;font-weight:700;color:var(--t1)}
+.ds-plan-row{display:flex;align-items:center;gap:6px;margin-top:4px}
+.ds-prog-wrap{margin-top:14px}
+.ds-prog-label{display:flex;justify-content:space-between;font-size:11px;color:var(--t3);margin-bottom:5px;font-weight:600}
+.ds-section-label{padding:10px 18px 5px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--t4)}
+.ds-nav-btn{display:flex;align-items:center;gap:10px;padding:9px 18px;background:none;color:var(--t3);font-size:13px;font-weight:500;width:100%;text-align:left;border-left:2px solid transparent;transition:all .13s}
+.ds-nav-btn:hover{background:var(--bg2);color:var(--t1)}
+.ds-nav-btn.active{background:var(--ind-lo);color:var(--ind3);border-left-color:var(--ind);font-weight:600}
+.ds-nav-icon{font-size:15px;width:20px;text-align:center}
+.ds-badge{margin-left:auto;font-family:var(--f-mono);font-size:9.5px;background:var(--bg4);color:var(--t4);padding:2px 7px;border-radius:100px}
+.ds-bottom{margin-top:auto;padding:16px 18px;border-top:1px solid var(--line)}
+.ds-upgrade-card{background:linear-gradient(135deg,var(--bg3),var(--bg4));border:1px solid var(--line2);border-radius:var(--r-lg);padding:16px;position:relative;overflow:hidden}
+.ds-upgrade-card::before{content:'';position:absolute;top:-30px;right:-30px;width:80px;height:80px;background:var(--ind-lo);border-radius:50%}
+.ds-upgrade-title{font-family:var(--f-head);font-size:14px;font-weight:700;margin-bottom:5px}
+.ds-upgrade-desc{font-size:12px;color:var(--t2);line-height:1.5;margin-bottom:12px}
+.ds-upgrade-btn{width:100%;background:var(--ind);color:#fff;font-family:var(--f-body);font-size:12px;font-weight:700;padding:9px;border-radius:var(--r-sm);transition:background .15s}
+.ds-upgrade-btn:hover{background:var(--ind2)}
+.dash-main{overflow-y:auto;background:var(--bg0)}
+.dash-view{display:none;padding:36px 40px}
+.dash-view.active{display:block;animation:pageIn .22s ease forwards}
+.dv-title{font-family:var(--f-head);font-size:26px;font-weight:800;letter-spacing:-.5px;margin-bottom:4px}
+.dv-sub{font-size:14px;color:var(--t3);margin-bottom:28px}
+
+/* Dashboard stat cards */
+.dash-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
+.dash-stat{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r-lg);padding:18px 20px}
+.dash-stat.hl{border-color:rgba(91,94,244,.25);background:linear-gradient(135deg,var(--bg2),rgba(91,94,244,.05))}
+.ds-label{font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--t4);margin-bottom:8px}
+.ds-val{font-family:var(--f-head);font-size:30px;font-weight:900;line-height:1;letter-spacing:-.5px}
+.dash-stat.hl .ds-val{color:var(--ind3)}
+.ds-sub{font-size:11px;color:var(--t3);margin-top:4px}
+
+/* Continue card */
+.continue-card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r-xl);padding:22px 24px;display:flex;align-items:center;gap:20px;cursor:pointer;transition:all .2s;margin-bottom:28px}
+.continue-card:hover{border-color:var(--ind);transform:translateY(-2px);box-shadow:var(--sh),0 0 0 1px rgba(91,94,244,.2)}
+.cc-icon{width:54px;height:54px;background:var(--ind-lo);border:1px solid rgba(91,94,244,.2);border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
+.cc-module{font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ind3);margin-bottom:3px}
+.cc-title{font-family:var(--f-head);font-size:17px;font-weight:700;letter-spacing:-.3px;margin-bottom:4px}
+.cc-desc{font-size:13px;color:var(--t3)}
+.cc-prog{margin-top:10px}
+.cc-prog-track{height:3px;background:var(--bg5);border-radius:2px;overflow:hidden;margin-bottom:3px}
+.cc-prog-fill{height:100%;background:var(--ind);border-radius:2px;transition:width .5s}
+.cc-prog-text{font-size:11px;color:var(--t4);font-weight:600;font-family:var(--f-mono)}
+.cc-arrow{font-size:22px;color:var(--ind3);margin-left:auto;flex-shrink:0}
+
+/* Recent lessons grid */
+.recent-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px}
+.rl-item{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r-lg);padding:14px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:all .15s}
+.rl-item:hover{border-color:var(--line2);background:var(--bg3)}
+.rl-item.done{border-color:rgba(16,185,129,.15)}
+.rl-num{width:34px;height:34px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:11px;font-weight:600;flex-shrink:0}
+.rl-num-def{background:var(--bg4);color:var(--t4)}
+.rl-num-done{background:var(--grn-lo);color:var(--green)}
+.rl-title{font-size:13px;font-weight:600;color:var(--t1);margin-bottom:1px;line-height:1.3}
+.rl-meta{font-size:11px;color:var(--t4)}
+
+/* Achievement badges */
+.achievements-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.ach-item{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r-lg);padding:16px;text-align:center;transition:all .2s}
+.ach-item:hover{border-color:var(--line2);transform:translateY(-2px)}
+.ach-item.locked{opacity:.4;filter:grayscale(1)}
+.ach-icon{font-size:28px;margin-bottom:8px}
+.ach-name{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:3px}
+.ach-desc{font-size:11px;color:var(--t3)}
+
+/* Certificate */
+.cert-wrap{background:linear-gradient(135deg,var(--bg2),var(--bg3));border:1px solid var(--line2);border-radius:var(--r-xl);padding:36px;text-align:center;position:relative;overflow:hidden}
+.cert-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--ind),var(--cyan),var(--green))}
+.cert-logo{font-family:var(--f-head);font-size:20px;font-weight:900;color:var(--ind3);margin-bottom:4px}
+.cert-title{font-family:var(--f-head);font-size:32px;font-weight:900;letter-spacing:-1px;margin-bottom:8px}
+.cert-name{font-family:var(--f-head);font-size:28px;font-weight:800;color:var(--ind3);margin-bottom:12px;border-bottom:1px solid var(--line2);padding-bottom:12px}
+.cert-desc{font-size:14px;color:var(--t2);line-height:1.7;max-width:420px;margin:0 auto 20px}
+.cert-footer{display:flex;justify-content:center;gap:36px;font-size:12px;color:var(--t3)}
+.cert-locked-overlay{position:absolute;inset:0;background:rgba(6,6,10,.85);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;border-radius:var(--r-xl)}
+
+/* Revenue tracker */
+.rev-chart{display:flex;align-items:flex-end;gap:8px;height:90px}
+.rev-bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px}
+.rev-bar{width:100%;background:var(--ind-lo);border-radius:4px 4px 0 0;min-height:5px;transition:height .5s,background .3s}
+.rev-bar.active{background:var(--ind)}
+.rev-bar-lbl{font-family:var(--f-mono);font-size:9.5px;color:var(--t4)}
+.client-row{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:12px 16px;display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.cr-avi{width:32px;height:32px;border-radius:50%;background:var(--ind-lo);color:var(--ind3);display:flex;align-items:center;justify-content:center;font-family:var(--f-head);font-size:12px;font-weight:700;flex-shrink:0}
+.cr-name{font-size:13px;font-weight:600;color:var(--t1);flex:1}
+.cr-amt{font-family:var(--f-head);font-size:16px;font-weight:700;color:var(--ind3)}
+
+/* ── PRICING PAGE ── */
+.pricing-hero{text-align:center;padding:80px 28px 56px;position:relative}
+.pricing-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(91,94,244,.07) 0%,transparent 70%)}
+.roi-belt{display:flex;gap:0;background:var(--bg2);border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;max-width:600px;margin:24px auto 0}
+.roi-cell{flex:1;padding:16px 18px;text-align:center;border-right:1px solid var(--line)}
+.roi-cell:last-child{border-right:none}
+.roi-num{font-family:var(--f-head);font-size:24px;font-weight:900;letter-spacing:-.5px;color:var(--t1)}
+.roi-lbl{font-size:11px;color:var(--t3);margin-top:2px}
+.billing-toggle{display:inline-flex;align-items:center;gap:0;background:var(--bg2);border:1px solid var(--line2);border-radius:100px;padding:4px;margin-top:24px}
+.tog-btn{font-size:13px;font-weight:600;color:var(--t3);padding:8px 20px;border-radius:100px;transition:all .2s}
+.tog-btn.active{background:var(--bg5);color:var(--t1)}
+.save-pill{font-size:10px;font-weight:700;background:var(--grn-lo);color:var(--green);border:1px solid var(--grn-md);padding:2px 8px;border-radius:100px;margin-left:4px;letter-spacing:.5px}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1020px;margin:48px auto 0;padding:0 28px;align-items:start}
+.price-card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r-2xl);overflow:hidden;transition:transform .22s,box-shadow .22s}
+.price-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg)}
+.price-card.featured{border-color:rgba(91,94,244,.35);transform:scale(1.03);box-shadow:var(--sh),0 0 0 1px rgba(91,94,244,.15)}
+.price-card.featured:hover{transform:scale(1.03) translateY(-4px)}
+.pc-top{background:var(--ind);padding:8px;text-align:center;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.9)}
+.pc-head{padding:26px 24px 20px;border-bottom:1px solid var(--line)}
+.pc-tier{font-size:11.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.pc-price{font-family:var(--f-head);font-weight:900;font-size:52px;line-height:1;letter-spacing:-2px}
+.pc-price sup{font-size:20px;letter-spacing:0;vertical-align:top;margin-top:10px;display:inline-block}
+.pc-period{font-size:13px;color:var(--t3);margin-top:4px}
+.pc-annual-note{font-size:11px;color:var(--t4);margin-top:3px}
+.pc-desc{font-size:13px;color:var(--t2);line-height:1.6;margin-top:12px}
+.pc-cta{width:100%;font-family:var(--f-body);font-size:14px;font-weight:700;padding:13px;border-radius:var(--r-lg);margin-top:18px;transition:all .18s}
+.cta-ghost{background:var(--bg4);color:var(--t1);border:1px solid var(--line2)}
+.cta-ghost:hover{background:var(--bg5)}
+.cta-ind{background:var(--ind);color:#fff;box-shadow:var(--sh-ind)}
+.cta-ind:hover{background:var(--ind2);box-shadow:var(--sh-ind-lg)}
+.cta-amber{background:var(--amb-lo);color:var(--amber);border:1px solid var(--amb-md)}
+.cta-amber:hover{background:rgba(245,158,11,.18)}
+.pc-features{padding:20px 24px 24px}
+.pc-feat-lbl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--t4);margin-bottom:14px}
+.pf-item{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.03);font-size:13px;color:var(--t2);line-height:1.5}
+.pf-item:last-child{border-bottom:none}
+.pfi-y{color:var(--green);font-size:13px;flex-shrink:0;margin-top:1px}
+.pfi-n{color:var(--bg5);font-size:13px;flex-shrink:0;margin-top:1px}
+.pfi-n+span{opacity:.35}
+.compare-table{width:100%;border-collapse:collapse;font-size:13px}
+.compare-table th{font-family:var(--f-head);font-size:13px;font-weight:700;padding:14px 18px;text-align:center;border-bottom:1px solid var(--line2);color:var(--t1)}
+.compare-table th:first-child{text-align:left}
+.compare-table td{padding:12px 18px;border-bottom:1px solid var(--line);text-align:center;color:var(--t2)}
+.compare-table td:first-child{text-align:left;color:var(--t1)}
+.compare-table tr:hover td{background:var(--bg2)}
+.compare-table .sec-head td{font-family:var(--f-mono);font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--t4);padding-top:22px;background:none!important}
+
+/* ── SEARCH ── */
+.search-overlay{position:fixed;inset:0;z-index:900;background:rgba(6,6,10,.85);backdrop-filter:blur(12px);display:none;align-items:flex-start;justify-content:center;padding-top:120px}
+.search-overlay.open{display:flex;animation:fadeIn .18s ease}
+.search-box{background:var(--bg2);border:1px solid var(--line2);border-radius:var(--r-xl);width:100%;max-width:620px;overflow:hidden;box-shadow:var(--sh-lg)}
+.search-input-row{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.search-icon{font-size:18px;color:var(--t3);flex-shrink:0}
+.search-input{flex:1;background:none;border:none;font-size:16px;color:var(--t1);outline:none}
+.search-input::placeholder{color:var(--t4)}
+.search-close{font-size:14px;color:var(--t3);background:var(--bg4);border:1px solid var(--line);border-radius:var(--r-sm);padding:4px 8px}
+.search-results{max-height:380px;overflow-y:auto;padding:8px}
+.search-result-item{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:var(--r);cursor:pointer;transition:background .12s}
+.search-result-item:hover{background:var(--bg3)}
+.sri-icon{width:36px;height:36px;border-radius:var(--r-sm);background:var(--bg4);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.sri-title{font-size:13px;font-weight:600;color:var(--t1);margin-bottom:2px}
+.sri-meta{font-size:11px;color:var(--t3)}
+.search-empty{padding:32px;text-align:center;color:var(--t3);font-size:13px}
+.search-filters{display:flex;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line)}
+
+/* ── MODAL CHECKOUT ── */
+.modal-bg{position:fixed;inset:0;z-index:850;background:rgba(6,6,10,.8);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:20px}
+.modal-bg.open{display:flex;animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal-box{background:var(--bg2);border:1px solid var(--line2);border-radius:var(--r-2xl);width:100%;max-width:490px;overflow:hidden;box-shadow:var(--sh-lg);animation:modalPop .24s cubic-bezier(.34,1.56,.64,1) forwards}
+@keyframes modalPop{from{opacity:0;transform:scale(.93) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.modal-head{padding:26px 26px 18px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;justify-content:space-between}
+.modal-title{font-family:var(--f-head);font-size:22px;font-weight:800;letter-spacing:-.5px}
+.modal-sub{font-size:13px;color:var(--t3);margin-top:4px}
+.modal-x{width:28px;height:28px;background:var(--bg4);border:1px solid var(--line);border-radius:50%;color:var(--t3);font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .14s}
+.modal-x:hover{background:var(--bg5);color:var(--t1)}
+.modal-body{padding:22px 26px}
+.modal-plan-row{background:var(--bg3);border:1px solid var(--line);border-radius:var(--r-lg);padding:14px 16px;display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.mpl-icon{width:40px;height:40px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.mpl-name{font-family:var(--f-head);font-size:15px;font-weight:700}
+.mpl-price{font-size:12px;color:var(--t3);margin-top:2px}
+.mf{margin-bottom:14px}
+.mf label{display:block;font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px;font-family:var(--f-mono)}
+.mf input{width:100%;background:var(--bg3);border:1px solid var(--line2);border-radius:var(--r-sm);padding:10px 13px;font-size:14px;color:var(--t1);transition:border-color .15s}
+.mf input:focus{border-color:var(--ind);box-shadow:0 0 0 3px var(--ind-lo)}
+.mf input::placeholder{color:var(--t4)}
+.mf-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.modal-submit{width:100%;padding:14px;font-family:var(--f-body);font-size:15px;font-weight:700;border-radius:var(--r-lg);border:none;margin-top:6px;transition:all .18s}
+.modal-trust{display:flex;justify-content:center;gap:18px;margin-top:14px;flex-wrap:wrap}
+.mt-item{font-size:11px;color:var(--t4);display:flex;align-items:center;gap:5px}
+
+/* ── RESOURCES PAGE ── */
+.resources-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.res-card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r-lg);padding:18px 20px;display:flex;gap:14px;align-items:flex-start;cursor:pointer;transition:all .18s}
+.res-card:hover{border-color:var(--line2);transform:translateY(-2px);box-shadow:var(--sh-sm)}
+.res-card.locked{opacity:.5;cursor:default}
+.res-card.locked:hover{transform:none;border-color:var(--line)}
+.res-icon{width:40px;height:40px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.res-title{font-size:14px;font-weight:700;color:var(--t1);margin-bottom:4px}
+.res-desc{font-size:12px;color:var(--t3);line-height:1.55}
+
+/* ── COMMUNITY ── */
+.community-post{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r-lg);padding:18px 20px;margin-bottom:12px;transition:border-color .15s}
+.community-post:hover{border-color:var(--line2)}
+.cp-win{display:inline-block;background:var(--grn-lo);border:1px solid var(--grn-md);color:var(--green);font-size:11px;font-weight:700;padding:3px 9px;border-radius:100px;margin-bottom:10px}
+.cp-avi{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--f-head);font-size:13px;font-weight:700;flex-shrink:0}
+.cp-author{font-size:13px;font-weight:700;color:var(--t1)}
+.cp-time{font-size:11px;color:var(--t4)}
+.cp-body{font-size:14px;color:var(--t2);line-height:1.7;margin:10px 0}
+.cp-actions{display:flex;gap:14px}
+.cp-action{font-size:12px;color:var(--t4);display:flex;align-items:center;gap:5px;cursor:pointer;transition:color .12s}
+.cp-action:hover{color:var(--t1)}
+
+/* ── ROADMAP ── */
+.roadmap-timeline{position:relative;padding-left:32px;max-width:700px}
+.roadmap-timeline::before{content:'';position:absolute;left:11px;top:8px;width:2px;bottom:8px;background:var(--line2)}
+.rt-item{position:relative;margin-bottom:36px}
+.rt-dot{position:absolute;left:-32px;top:5px;width:24px;height:24px;border-radius:50%;border:2px solid var(--bg5);background:var(--bg0);display:flex;align-items:center;justify-content:center}
+.rt-dot.live{border-color:var(--green);background:var(--grn-lo)}
+.rt-dot.live::after{content:'';width:8px;height:8px;background:var(--green);border-radius:50%}
+.rt-dot.soon{border-color:var(--ind);background:var(--ind-lo)}
+.rt-dot.soon::after{content:'';width:8px;height:8px;background:var(--ind);border-radius:50%;animation:pulse 2s infinite}
+.rt-dot.coming::after{content:'';width:6px;height:6px;background:var(--bg5);border-radius:50%}
+.rt-date{font-family:var(--f-mono);font-size:10.5px;color:var(--t4);margin-bottom:5px}
+.rt-title{font-family:var(--f-head);font-size:18px;font-weight:700;margin-bottom:4px;letter-spacing:-.3px}
+.rt-desc{font-size:13px;color:var(--t3);line-height:1.6}
+.rt-pills{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.rt-pill{font-size:11px;padding:3px 10px;border-radius:100px;background:var(--bg4);color:var(--t3);border:1px solid var(--line)}
+
+/* ── TESTIMONIALS ── */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.testi-card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r-xl);padding:22px;transition:all .2s}
+.testi-card:hover{transform:translateY(-3px);box-shadow:var(--sh);border-color:var(--line2)}
+.tc-stars{color:var(--amber);font-size:12px;letter-spacing:2px;margin-bottom:12px}
+.tc-quote{font-size:14px;color:var(--t2);line-height:1.75;font-style:italic;margin-bottom:16px}
+.tc-avi{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--f-head);font-size:14px;font-weight:700;flex-shrink:0}
+.tc-name{font-size:13px;font-weight:700;color:var(--t1)}
+.tc-role{font-size:11px;color:var(--t3)}
+.tc-result{margin-top:14px;padding:9px 12px;background:var(--ind-lo);border:1px solid rgba(91,94,244,.15);border-radius:var(--r-sm);font-size:12px;font-weight:600;color:var(--ind3)}
+
+/* ── EMAIL CAPTURE ── */
+.email-capture{background:linear-gradient(135deg,var(--bg2),var(--bg3));border:1px solid var(--line2);border-radius:var(--r-2xl);padding:56px;text-align:center;position:relative;overflow:hidden}
+.email-capture::before{content:'';position:absolute;top:-60px;left:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(91,94,244,.12),transparent 70%)}
+.email-capture::after{content:'';position:absolute;bottom:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(16,185,129,.08),transparent 70%)}
+.email-form{display:flex;gap:10px;max-width:480px;margin:24px auto 0;position:relative;z-index:1}
+.email-input{flex:1;background:var(--bg4);border:1px solid var(--line2);border-radius:var(--r-lg);padding:12px 16px;font-size:14px;color:var(--t1);outline:none;transition:border-color .15s}
+.email-input:focus{border-color:var(--ind);box-shadow:0 0 0 3px var(--ind-lo)}
+.email-input::placeholder{color:var(--t4)}
+
+/* ── FOOTER ── */
+footer{background:var(--bg1);border-top:1px solid var(--line);padding:56px 0 32px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
+.footer-brand{}
+.footer-brand-name{font-family:var(--f-head);font-size:20px;font-weight:900;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.footer-brand-name em{color:var(--ind3);font-style:normal}
+.footer-brand-desc{font-size:13px;color:var(--t3);line-height:1.7;max-width:260px}
+.footer-col-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--t3);margin-bottom:14px}
+.footer-link{display:block;font-size:13px;color:var(--t4);padding:3px 0;transition:color .14s;cursor:pointer}
+.footer-link:hover{color:var(--t1)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--t4)}
+.footer-social{display:flex;gap:10px}
+.footer-social-btn{width:32px;height:32px;background:var(--bg3);border:1px solid var(--line);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .15s;cursor:pointer}
+.footer-social-btn:hover{background:var(--bg4);border-color:var(--line2)}
+
+/* ── RESPONSIVE ── */
+@media (max-width:1024px){.lesson-layout{grid-template-columns:1fr}.lesson-sidebar{display:none}.dash-layout{grid-template-columns:1fr}.dash-sidebar{display:none}.pricing-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}.price-card.featured{transform:none}.footer-grid{grid-template-columns:1fr 1fr}.testi-grid{grid-template-columns:1fr}}
+@media (max-width:768px){.hero-stats{gap:20px}.courses-grid{grid-template-columns:1fr}.nav-links{display:none}.hamburger{display:flex}.dash-stats{grid-template-columns:1fr 1fr}.recent-grid{grid-template-columns:1fr}.achievements-grid{grid-template-columns:repeat(2,1fr)}.email-form{flex-direction:column}.footer-grid{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="nav('home')">
+      <div class="nav-logo-mark">W</div>
+      <div class="nav-logo-text">WRKLO<em>.ai</em></div>
+    </div>
+    <div class="nav-links">
+      <button class="nav-link active" id="nl-home"      onclick="nav('home')">Home</button>
+      <button class="nav-link"        id="nl-courses"   onclick="nav('courses')">Courses</button>
+      <button class="nav-link"        id="nl-lesson"    onclick="nav('lesson')">Lesson Player</button>
+      <button class="nav-link"        id="nl-roadmap"   onclick="nav('roadmap')">Next Classes</button>
+      <button class="nav-link"        id="nl-dashboard" onclick="nav('dashboard')">Dashboard</button>
+      <button class="nav-link"        id="nl-pricing"   onclick="nav('pricing')">Pricing</button>
+    </div>
+    <div class="nav-right">
+      <button class="nav-search-btn" onclick="openSearch()" title="Search lessons">🔍</button>
+      <div class="nav-prog" id="nav-prog-wrap">
+        <div class="nav-prog-track"><div class="nav-prog-fill" id="nav-prog-fill" style="width:0%"></div></div>
+        <div class="nav-prog-text"><span id="nav-prog-num">0</span>/48</div>
+      </div>
+      <span class="nav-plan plan-free" id="nav-plan-chip">Free Preview</span>
+      <button class="btn btn-ind btn-sm" onclick="nav('pricing')">Upgrade</button>
+      <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile nav panel -->
+<div id="mobile-nav" style="display:none;position:fixed;top:64px;left:0;right:0;background:rgba(6,6,10,.97);border-bottom:1px solid var(--line);z-index:799;padding:16px 20px;display:flex;flex-direction:column;gap:4px;">
+  <button class="nav-link" style="text-align:left;width:100%" onclick="nav('home');toggleMobileNav()">Home</button>
+  <button class="nav-link" style="text-align:left;width:100%" onclick="nav('courses');toggleMobileNav()">Courses</button>
+  <button class="nav-link" style="text-align:left;width:100%" onclick="nav('lesson');toggleMobileNav()">Lesson Player</button>
+  <button class="nav-link" style="text-align:left;width:100%" onclick="nav('roadmap');toggleMobileNav()">Next Classes</button>
+  <button class="nav-link" style="text-align:left;width:100%" onclick="nav('dashboard');toggleMobileNav()">Dashboard</button>
+  <button class="nav-link" style="text-align:left;width:100%" onclick="nav('pricing');toggleMobileNav()">Pricing</button>
+</div>
+
+<!-- ═══════════════════════════════ SEARCH OVERLAY ═══════════════════════════════ -->
+<div class="search-overlay" id="search-overlay">
+  <div class="search-box">
+    <div class="search-input-row">
+      <span class="search-icon">🔍</span>
+      <input class="search-input" id="search-input" placeholder="Search lessons, tools, concepts..." oninput="runSearch(this.value)" autofocus>
+      <button class="search-close btn" onclick="closeSearch()">ESC</button>
+    </div>
+    <div class="search-filters">
+      <button class="badge badge-surface" id="sf-all" onclick="setSearchFilter('all',this)" style="cursor:pointer">All</button>
+      <button class="badge badge-surface" id="sf-beginner" onclick="setSearchFilter('beginner',this)" style="cursor:pointer">Beginner</button>
+      <button class="badge badge-surface" id="sf-intermediate" onclick="setSearchFilter('intermediate',this)" style="cursor:pointer">Intermediate</button>
+      <button class="badge badge-surface" id="sf-advanced" onclick="setSearchFilter('advanced',this)" style="cursor:pointer">Advanced</button>
+    </div>
+    <div id="search-results-list"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ CHECKOUT MODAL ═══════════════════════════════ -->
+<div class="modal-bg" id="modal-bg">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div>
+        <div class="modal-title" id="m-title">Start Builder Plan</div>
+        <div class="modal-sub">7-day free trial · Cancel anytime · 30-day guarantee</div>
+      </div>
+      <button class="modal-x" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-plan-row">
+        <div class="mpl-icon" id="m-icon" style="background:var(--ind-lo)">⚡</div>
+        <div>
+          <div class="mpl-name" id="m-plan-name">Builder Plan</div>
+          <div class="mpl-price" id="m-plan-price">$97/month after 7-day free trial</div>
+        </div>
+        <div style="margin-left:auto"><span class="nav-plan plan-builder" id="m-chip">BUILDER</span></div>
+      </div>
+      <div class="mf"><label>Full Name</label><input type="text" id="m-name" placeholder="Your full name"></div>
+      <div class="mf"><label>Email Address</label><input type="email" id="m-email" placeholder="you@example.com"></div>
+      <div class="mf"><label>Card Number <span style="color:var(--t4);font-weight:400;font-family:var(--f-body)">(charged after trial)</span></label><input type="text" placeholder="4242 4242 4242 4242" maxlength="19"></div>
+      <div class="mf-2">
+        <div class="mf" style="margin:0"><label>Expiry</label><input type="text" placeholder="MM / YY" maxlength="7"></div>
+        <div class="mf" style="margin:0"><label>CVC</label><input type="text" placeholder="123" maxlength="4"></div>
+      </div>
+      <button class="modal-submit" id="m-submit" onclick="completePurchase()">Start Free Trial →</button>
+      <div class="modal-trust">
+        <span class="mt-item">🔒 256-bit SSL</span>
+        <span class="mt-item">✓ 30-day guarantee</span>
+        <span class="mt-item">✕ Cancel anytime</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE: HOME
+═══════════════════════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="hero-glow-1"></div>
+      <div class="hero-glow-2"></div>
+      <div class="circuit" id="circuit"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow fi fi-1">
+        <div class="eyebrow-dot"><span></span></div>
+        <span class="t-label" style="color:var(--ind3)">Now Enrolling · 2026 · Los Angeles</span>
+      </div>
+      <h1 class="t-display hero-title fi fi-2">
+        <span>LESS WORK.</span><br>
+        <span class="ind">BETTER</span><br>
+        <span class="line-dim">FLOW.</span>
+      </h1>
+      <p class="hero-sub fi fi-3">The only AI automation academy built for people who want to <strong style="color:var(--t1)">build a real agency</strong> — not just watch videos. 48 structured lessons, live builds, and a community of founders making it happen.</p>
+      <div class="hero-cta fi fi-4">
+        <button class="btn btn-ind btn-xl" onclick="nav('pricing')">Start Free — 7 Days →</button>
+        <button class="btn btn-ghost btn-lg" onclick="nav('courses')">Browse Curriculum</button>
+      </div>
+      <div class="hero-stats fi fi-5">
+        <div class="stat-item">
+          <div class="stat-num">48<em>+</em></div>
+          <div class="stat-lbl">Structured lessons</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">26<em>d</em></div>
+          <div class="stat-lbl">Avg. first client</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num"><em>$</em>9.8K</div>
+          <div class="stat-lbl">Avg MRR, Month 5</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">847</div>
+          <div class="stat-lbl">Active students</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">↓ Scroll to explore</div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track" id="marquee-track">
+      <div class="marquee-item">Make.com Automation</div>
+      <div class="marquee-item">n8n Workflows</div>
+      <div class="marquee-item">Zapier Pro Flows</div>
+      <div class="marquee-item">AI Agents with GPT-4</div>
+      <div class="marquee-item">GoHighLevel CRM</div>
+      <div class="marquee-item">OpenAI API</div>
+      <div class="marquee-item">Lead Follow-Up Bots</div>
+      <div class="marquee-item">Appointment Reminders</div>
+      <div class="marquee-item">Google Review Automation</div>
+      <div class="marquee-item">Twilio SMS</div>
+      <div class="marquee-item">Webhook Integrations</div>
+      <div class="marquee-item">No-Code AI</div>
+      <div class="marquee-item">Agency Pricing</div>
+      <div class="marquee-item">Client Onboarding</div>
+      <div class="marquee-item">$10K/Month Blueprint</div>
+      <!-- Duplicate for seamless loop -->
+      <div class="marquee-item">Make.com Automation</div>
+      <div class="marquee-item">n8n Workflows</div>
+      <div class="marquee-item">Zapier Pro Flows</div>
+      <div class="marquee-item">AI Agents with GPT-4</div>
+      <div class="marquee-item">GoHighLevel CRM</div>
+      <div class="marquee-item">OpenAI API</div>
+      <div class="marquee-item">Lead Follow-Up Bots</div>
+      <div class="marquee-item">Appointment Reminders</div>
+    </div>
+  </div>
+
+  <!-- FEATURED COURSES -->
+  <section class="section">
+    <div class="container">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:0">
+        <div>
+          <div class="t-label fi" style="margin-bottom:10px">The Curriculum</div>
+          <h2 class="t-h2 fi fi-1">Everything you need.<br><span class="muted">In one place.</span></h2>
+        </div>
+        <button class="btn btn-ghost fi fi-2" onclick="nav('courses')">View All Courses →</button>
+      </div>
+      <div class="courses-grid" id="home-courses-grid"></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- HOW IT WORKS -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:56px">
+        <div class="t-label fi" style="margin-bottom:10px">How it works</div>
+        <h2 class="t-h2 fi fi-1">Learn. Build. Close.<br><span class="muted">In 30 days.</span></h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px" id="how-grid">
+        <div class="card fi fi-1" style="padding:24px;text-align:center">
+          <div style="width:52px;height:52px;background:var(--ind-lo);border:1px solid rgba(91,94,244,.2);border-radius:var(--r-xl);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 16px">🎓</div>
+          <div style="font-family:var(--f-head);font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ind3);margin-bottom:8px">Week 1</div>
+          <div class="t-h3" style="margin-bottom:8px">Learn & Build</div>
+          <p style="font-size:13px;color:var(--t3);line-height:1.6">Master Make.com, n8n, and OpenAI. Build 3 sellable automation demos with Loom walkthroughs.</p>
+        </div>
+        <div class="card fi fi-2" style="padding:24px;text-align:center">
+          <div style="width:52px;height:52px;background:var(--grn-lo);border:1px solid rgba(16,185,129,.2);border-radius:var(--r-xl);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 16px">📦</div>
+          <div style="font-family:var(--f-head);font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:8px">Week 2</div>
+          <div class="t-h3" style="margin-bottom:8px">Productize</div>
+          <p style="font-size:13px;color:var(--t3);line-height:1.6">Set up GoHighLevel, define your niche offer, create your pricing, and publish your one-page website.</p>
+        </div>
+        <div class="card fi fi-3" style="padding:24px;text-align:center">
+          <div style="width:52px;height:52px;background:var(--amb-lo);border:1px solid rgba(245,158,11,.2);border-radius:var(--r-xl);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 16px">📞</div>
+          <div style="font-family:var(--f-head);font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:8px">Week 3</div>
+          <div class="t-h3" style="margin-bottom:8px">Sell & Close</div>
+          <p style="font-size:13px;color:var(--t3);line-height:1.6">15 cold emails + 10 LinkedIn DMs daily. Discovery call scripts, objection handling, and your first client.</p>
+        </div>
+        <div class="card fi fi-4" style="padding:24px;text-align:center">
+          <div style="width:52px;height:52px;background:var(--cyn-lo);border:1px solid rgba(6,182,212,.2);border-radius:var(--r-xl);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 16px">🚀</div>
+          <div style="font-family:var(--f-head);font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--cyan);margin-bottom:8px">Week 4+</div>
+          <div class="t-h3" style="margin-bottom:8px">Deliver & Scale</div>
+          <p style="font-size:13px;color:var(--t3);line-height:1.6">Go live in 3 days. Day-30 results report. Stack clients. Hire your first VA. Hit $10K/month MRR.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- TESTIMONIALS -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:0">
+        <div class="t-label fi" style="margin-bottom:10px">Student Results</div>
+        <h2 class="t-h2 fi fi-1">Real people.<br><span class="muted">Real revenue.</span></h2>
+      </div>
+      <div class="testi-grid" id="testi-grid"></div>
+      <div style="text-align:center;margin-top:44px">
+        <button class="btn btn-ind btn-lg fi" onclick="nav('pricing')">Start Your Story →</button>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- EMAIL CAPTURE -->
+  <section class="section-sm">
+    <div class="container-sm">
+      <div class="email-capture">
+        <div class="t-label fi" style="margin-bottom:12px;position:relative;z-index:1">Free AI Automation Newsletter</div>
+        <h2 class="t-h2 fi fi-1" style="position:relative;z-index:1">Get weekly automation<br><span class="ind">workflows, for free.</span></h2>
+        <p style="font-size:15px;color:var(--t2);margin-top:12px;position:relative;z-index:1">Templates, case studies, and tool breakdowns every Tuesday. Join 4,200+ automation builders.</p>
+        <div class="email-form fi fi-2">
+          <input class="email-input" type="email" placeholder="your@email.com" id="email-capture-input">
+          <button class="btn btn-ind" onclick="captureEmail()">Subscribe Free →</button>
+        </div>
+        <div style="font-size:12px;color:var(--t4);margin-top:10px;position:relative;z-index:1">No spam. Unsubscribe anytime. Read by 4,200+ builders.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container-lg">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-name">
+            <div class="nav-logo-mark" style="width:28px;height:28px;font-size:12px">W</div>
+            WRKLO<em>.ai</em>
+          </div>
+          <p class="footer-brand-desc">The premium AI automation academy for agency builders. Less work, better flow.</p>
+          <div class="footer-social" style="margin-top:16px">
+            <button class="footer-social-btn" title="Twitter">𝕏</button>
+            <button class="footer-social-btn" title="LinkedIn">in</button>
+            <button class="footer-social-btn" title="Discord">💬</button>
+            <button class="footer-social-btn" title="YouTube">▶</button>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Platform</div>
+          <span class="footer-link" onclick="nav('courses')">Courses</span>
+          <span class="footer-link" onclick="nav('lesson')">Lesson Player</span>
+          <span class="footer-link" onclick="nav('roadmap')">Next Classes</span>
+          <span class="footer-link" onclick="nav('dashboard')">Dashboard</span>
+          <span class="footer-link" onclick="nav('pricing')">Pricing</span>
+        </div>
+        <div>
+          <div class="footer-col-title">Resources</div>
+          <span class="footer-link">Blog</span>
+          <span class="footer-link">Templates</span>
+          <span class="footer-link">Case Studies</span>
+          <span class="footer-link">Automation Tools</span>
+          <span class="footer-link">Community</span>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <span class="footer-link">About</span>
+          <span class="footer-link">Careers</span>
+          <span class="footer-link">Privacy Policy</span>
+          <span class="footer-link">Terms of Service</span>
+          <span class="footer-link">Contact</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 WRKLO.ai — All rights reserved</span>
+        <span>Made for builders in Los Angeles 🌴</span>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /page-home -->
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE: COURSES
+═══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-courses">
+  <div style="padding-top:calc(var(--nav-h) + 56px);padding-bottom:80px">
+    <div class="container">
+      <div class="t-label" style="margin-bottom:10px">All Courses</div>
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:16px">
+        <h1 class="t-h2">48 Lessons.<br><span class="muted">Zero fluff.</span></h1>
+        <div style="display:flex;gap:8px;flex-wrap:wrap" id="filter-btns">
+          <button class="btn btn-ind btn-sm" id="fb-all" onclick="filterCourses('all',this)">All (48)</button>
+          <button class="btn btn-surface btn-sm" id="fb-beginner" onclick="filterCourses('beginner',this)">🟢 Beginner</button>
+          <button class="btn btn-surface btn-sm" id="fb-intermediate" onclick="filterCourses('intermediate',this)">🟡 Intermediate</button>
+          <button class="btn btn-surface btn-sm" id="fb-advanced" onclick="filterCourses('advanced',this)">🔴 Advanced</button>
+          <button class="btn btn-surface btn-sm" id="fb-make" onclick="filterCourses('make',this)">Make.com</button>
+          <button class="btn btn-surface btn-sm" id="fb-n8n" onclick="filterCourses('n8n',this)">n8n</button>
+          <button class="btn btn-surface btn-sm" id="fb-agents" onclick="filterCourses('agents',this)">AI Agents</button>
+          <button class="btn btn-surface btn-sm" id="fb-sales" onclick="filterCourses('sales',this)">Sales</button>
+        </div>
+      </div>
+      <!-- Search bar on courses page -->
+      <div class="input-icon-wrap" style="max-width:400px;margin-bottom:28px">
+        <span class="icon">🔍</span>
+        <input class="input" id="course-search" placeholder="Search lessons..." oninput="filterCourses('search',null,this.value)">
+      </div>
+      <div class="courses-grid" id="all-courses-grid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE: LESSON PLAYER
+═══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-lesson">
+  <div class="lesson-layout">
+    <!-- Main content -->
+    <div class="lesson-main" id="lesson-main-content">
+      <!-- Rendered by JS -->
+    </div>
+    <!-- Sidebar playlist -->
+    <div class="lesson-sidebar">
+      <div class="playlist-header">
+        <div class="playlist-title">Course Playlist</div>
+        <div class="playlist-prog">
+          <div class="playlist-prog-track"><div class="playlist-prog-fill" id="playlist-prog" style="width:0%"></div></div>
+          <div class="playlist-prog-txt" id="playlist-prog-txt">0/48</div>
+        </div>
+      </div>
+      <div id="playlist-content"><!-- Rendered by JS --></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE: ROADMAP / NEXT CLASSES
+═══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-roadmap">
+  <div style="padding-top:calc(var(--nav-h) + 56px);padding-bottom:80px">
+    <div class="container-sm">
+      <div class="t-label" style="margin-bottom:10px">Course Roadmap</div>
+      <h1 class="t-h2" style="margin-bottom:8px">What's coming<br><span class="muted">next.</span></h1>
+      <p style="font-size:15px;color:var(--t2);margin-bottom:48px;line-height:1.75">WRKLO.ai is continuously updated. New lessons, new tools, new workflows — every month. Here's what's live, what's next, and what's on the horizon.</p>
+      <div class="roadmap-timeline" id="roadmap-timeline"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE: DASHBOARD
+═══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-dashboard">
+  <div class="dash-layout">
+    <!-- Sidebar -->
+    <aside class="dash-sidebar">
+      <div class="ds-user">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="ds-avi" id="ds-avi">W</div>
+          <div>
+            <div class="ds-name" id="ds-name">Your Name</div>
+            <div class="ds-plan-row">
+              <span class="nav-plan plan-free" id="ds-plan-chip">FREE</span>
+            </div>
+          </div>
+        </div>
+        <div class="ds-prog-wrap">
+          <div class="ds-prog-label"><span>Course Progress</span><span id="ds-prog-pct">0%</span></div>
+          <div class="progress-track"><div class="progress-fill" id="ds-prog-fill" style="width:0%"></div></div>
+        </div>
+      </div>
+      <div class="ds-section-label">Main</div>
+      <button class="ds-nav-btn active" id="dn-overview" onclick="showDashView('overview')"><span class="ds-nav-icon">⊞</span>Overview<span class="ds-badge" id="ds-badge-lessons">0/48</span></button>
+      <button class="ds-nav-btn" id="dn-courses" onclick="showDashView('courses')"><span class="ds-nav-icon">🎓</span>My Courses</button>
+      <button class="ds-nav-btn" id="dn-continue" onclick="showDashView('continue')"><span class="ds-nav-icon">▶</span>Continue Learning</button>
+      <div class="ds-section-label">Tools</div>
+      <button class="ds-nav-btn" id="dn-community" onclick="showDashView('community')"><span class="ds-nav-icon">💬</span>Community<span class="ds-badge" id="comm-lock-badge">BUILDER+</span></button>
+      <button class="ds-nav-btn" id="dn-resources" onclick="showDashView('resources')"><span class="ds-nav-icon">📁</span>Resources</button>
+      <button class="ds-nav-btn" id="dn-revenue" onclick="showDashView('revenue')"><span class="ds-nav-icon">📈</span>Revenue Tracker<span class="ds-badge" id="rev-lock-badge">BUILDER+</span></button>
+      <button class="ds-nav-btn" id="dn-certificate" onclick="showDashView('certificate')"><span class="ds-nav-icon">🏆</span>Certificate</button>
+      <div class="ds-bottom" id="ds-upsell-area">
+        <div class="ds-upgrade-card">
+          <div class="ds-upgrade-title">Unlock Builder</div>
+          <div class="ds-upgrade-desc">Get community, live sessions, GHL snapshot, and Make.com templates.</div>
+          <button class="ds-upgrade-btn" onclick="openModal('pro')">Upgrade →</button>
+        </div>
+      </div>
+    </aside>
+    <!-- Main -->
+    <div class="dash-main" id="dash-main-area">
+
+      <!-- OVERVIEW -->
+      <div class="dash-view active" id="dv-overview">
+        <div class="dv-title" id="dv-greet-h">Good morning 👋</div>
+        <div class="dv-sub" id="dv-greet-p">0 lessons complete — your first client is 30 days away.</div>
+        <div class="dash-stats">
+          <div class="dash-stat hl"><div class="ds-label">Lessons Done</div><div class="ds-val ind" id="ov-done">0</div><div class="ds-sub">of 48 total</div></div>
+          <div class="dash-stat"><div class="ds-label">Day Streak</div><div class="ds-val" id="ov-streak">1</div><div class="ds-sub">Keep going</div></div>
+          <div class="dash-stat"><div class="ds-label">Phase</div><div class="ds-val" id="ov-phase" style="font-size:18px;margin-top:4px">Foundations</div><div class="ds-sub">Phase 1 of 4</div></div>
+          <div class="dash-stat"><div class="ds-label">MRR Target</div><div class="ds-val">$10K</div><div class="ds-sub">30 days away</div></div>
+        </div>
+        <div style="margin-bottom:14px;display:flex;align-items:center;justify-content:space-between"><div style="font-family:var(--f-head);font-size:16px;font-weight:700">Continue Learning</div><button class="btn btn-ghost btn-sm" onclick="nav('lesson')">Open Player →</button></div>
+        <div class="continue-card" onclick="nav('lesson')" id="continue-card">
+          <div class="cc-icon" id="cc-icon">🔧</div>
+          <div style="flex:1">
+            <div class="cc-module" id="cc-module">Phase 1 — Foundations</div>
+            <div class="cc-title" id="cc-title">What is Automation?</div>
+            <div class="cc-desc" id="cc-desc">Learn triggers, actions, and the core concepts that power every automation you'll sell.</div>
+            <div class="cc-prog"><div class="cc-prog-track"><div class="cc-prog-fill" id="cc-prog-fill" style="width:0%"></div></div><div class="cc-prog-text" id="cc-prog-text">Start this lesson →</div></div>
+          </div>
+          <div class="cc-arrow">→</div>
+        </div>
+        <div style="margin-bottom:14px;font-family:var(--f-head);font-size:16px;font-weight:700">Recent Lessons</div>
+        <div class="recent-grid" id="dash-recent-grid"></div>
+        <div style="margin-top:24px;margin-bottom:14px;font-family:var(--f-head);font-size:16px;font-weight:700">Achievements</div>
+        <div class="achievements-grid" id="achievements-grid"></div>
+      </div>
+
+      <!-- MY COURSES -->
+      <div class="dash-view" id="dv-courses">
+        <div class="dv-title">My Courses</div>
+        <div class="dv-sub">All enrolled courses and your progress within each module.</div>
+        <div class="courses-grid" id="dash-courses-grid"></div>
+      </div>
+
+      <!-- CONTINUE LEARNING -->
+      <div class="dash-view" id="dv-continue">
+        <div class="dv-title">Continue Learning</div>
+        <div class="dv-sub">Pick up where you left off.</div>
+        <div id="continue-list"></div>
+      </div>
+
+      <!-- COMMUNITY -->
+      <div class="dash-view" id="dv-community">
+        <div class="dv-title">Community Feed</div>
+        <div class="dv-sub" id="comm-dv-sub">Connect, share wins, and get referrals from fellow agency builders.</div>
+        <div id="community-locked-msg" style="display:none">
+          <div style="text-align:center;padding:60px 20px">
+            <div style="font-size:44px;margin-bottom:16px;opacity:.4">💬</div>
+            <div style="font-family:var(--f-head);font-size:24px;font-weight:700;color:var(--t2);margin-bottom:10px">Builder & Agency Only</div>
+            <p style="font-size:14px;color:var(--t3);max-width:380px;margin:0 auto 24px;line-height:1.7">Join the community where students share wins, post client referrals, and hold each other accountable.</p>
+            <button class="btn btn-ind" onclick="openModal('pro')">Upgrade to Builder →</button>
+          </div>
+        </div>
+        <div id="community-feed"></div>
+      </div>
+
+      <!-- RESOURCES -->
+      <div class="dash-view" id="dv-resources">
+        <div class="dv-title">Resource Library</div>
+        <div class="dv-sub">Templates, scripts, and tools — ready to use with your clients.</div>
+        <div class="resources-grid" id="resources-grid"></div>
+      </div>
+
+      <!-- REVENUE TRACKER -->
+      <div class="dash-view" id="dv-revenue">
+        <div id="rev-locked-msg" style="display:none">
+          <div style="text-align:center;padding:60px 20px">
+            <div style="font-size:44px;margin-bottom:16px;opacity:.4">📈</div>
+            <div style="font-family:var(--f-head);font-size:24px;font-weight:700;color:var(--t2);margin-bottom:10px">Builder & Agency Feature</div>
+            <p style="font-size:14px;color:var(--t3);max-width:380px;margin:0 auto 24px;line-height:1.7">Track your MRR growth, log clients, and see your path to $10K/month visualized live.</p>
+            <button class="btn btn-ind" onclick="openModal('pro')">Upgrade to Builder →</button>
+          </div>
+        </div>
+        <div id="rev-content">
+          <div class="dv-title">Revenue Tracker 📈</div>
+          <div class="dv-sub">Log your clients and watch your MRR climb toward $10,000/month.</div>
+          <div class="card" style="padding:24px;margin-bottom:16px">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px">
+              <div><div style="font-family:var(--f-head);font-size:16px;font-weight:700;margin-bottom:3px">Monthly Recurring Revenue</div><div style="font-size:12px;color:var(--t3)">Current month · Updated live</div></div>
+              <div style="text-align:right"><div style="font-family:var(--f-head);font-size:40px;font-weight:900;letter-spacing:-1.5px;color:var(--ind3);line-height:1" id="rev-total">$0</div><div style="font-size:10.5px;color:var(--t4);font-family:var(--f-mono);text-transform:uppercase;letter-spacing:1px">MRR</div></div>
+            </div>
+            <div class="rev-chart" id="rev-chart"></div>
+            <div style="display:flex;gap:10px;align-items:flex-end;margin-top:18px">
+              <div style="flex:1"><div style="font-size:11px;font-weight:700;color:var(--t4);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;font-family:var(--f-mono)">Client Name</div><input class="input" type="text" id="rev-client-name" placeholder="e.g. Smile Dental LA"></div>
+              <div style="width:130px"><div style="font-size:11px;font-weight:700;color:var(--t4);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;font-family:var(--f-mono)">Monthly $</div><input class="input" type="number" id="rev-client-amt" placeholder="900"></div>
+              <button class="btn btn-ind" onclick="addRevClient()" style="margin-bottom:1px">+ Add</button>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px">
+            <div class="card" style="padding:14px"><div style="font-family:var(--f-head);font-size:20px;font-weight:700;color:var(--t1)" id="rev-ms-1">$0</div><div style="font-size:11px;color:var(--t3);margin-top:2px">Current MRR</div></div>
+            <div class="card" style="padding:14px"><div style="font-family:var(--f-head);font-size:20px;font-weight:700">$5,000</div><div style="font-size:11px;color:var(--t3);margin-top:2px">First milestone</div></div>
+            <div class="card" style="padding:14px"><div style="font-family:var(--f-head);font-size:20px;font-weight:700">$10,000</div><div style="font-size:11px;color:var(--t3);margin-top:2px">Main goal</div></div>
+            <div class="card" style="padding:14px"><div style="font-family:var(--f-head);font-size:20px;font-weight:700">$50,000</div><div style="font-size:11px;color:var(--t3);margin-top:2px">Scale target</div></div>
+          </div>
+          <div id="rev-client-list"></div>
+        </div>
+      </div>
+
+      <!-- CERTIFICATE -->
+      <div class="dash-view" id="dv-certificate">
+        <div class="dv-title">Certificate of Completion</div>
+        <div class="dv-sub">Complete all 48 lessons to unlock your official WRKLO.ai certificate.</div>
+        <div class="cert-wrap" id="cert-wrap">
+          <div class="cert-logo">WRKLO.ai</div>
+          <div class="cert-title">Certificate of Completion</div>
+          <div style="font-size:14px;color:var(--t3);margin-bottom:16px">This certifies that</div>
+          <div class="cert-name" id="cert-name">Your Name</div>
+          <div class="cert-desc">has successfully completed the WRKLO.ai AI Automation Agency Program — demonstrating mastery of Make.com, n8n, GoHighLevel, AI lead systems, and the complete agency launch framework.</div>
+          <div style="font-family:var(--f-mono);font-size:12px;color:var(--t4);margin-bottom:20px">Issued: <span id="cert-date">—</span> · ID: WRK-2026-<span id="cert-id">000</span></div>
+          <button class="btn btn-ind" onclick="alert('Certificate download would be triggered here in production.')">Download PDF Certificate</button>
+          <div class="cert-footer" style="margin-top:20px"><span>WRKLO.ai Academy</span><span>AI Automation Program</span><span>Class of 2026</span></div>
+          <div class="cert-locked-overlay" id="cert-locked">
+            <div style="font-size:44px">🔒</div>
+            <div style="font-family:var(--f-head);font-size:22px;font-weight:700;color:var(--t2);margin-top:10px">Complete all lessons to unlock</div>
+            <p style="font-size:13px;color:var(--t3);max-width:320px;text-align:center;margin-top:8px;line-height:1.6"><span id="cert-remaining">48</span> lessons remaining</p>
+            <button class="btn btn-ind" onclick="nav('lesson')" style="margin-top:16px">Continue Learning →</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /dash-main-area -->
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE: PRICING
+═══════════════════════════════════════════════════════════ -->
+<div class="page" id="page-pricing">
+  <div class="pricing-hero">
+    <div class="t-label" style="margin-bottom:10px;position:relative;z-index:1">Pricing</div>
+    <h2 class="t-h2" style="position:relative;z-index:1">Start free.<br><span class="muted">Pay when ready.</span></h2>
+    <p style="font-size:15px;color:var(--t2);margin-top:14px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.75;position:relative;z-index:1">Every plan includes a 7-day free trial. Your first client pays $1,800 — that's up to <strong style="color:var(--t1)">38× your monthly cost.</strong></p>
+    <div class="roi-belt fi">
+      <div class="roi-cell"><div class="roi-num">$1,800</div><div class="roi-lbl">First client setup fee</div></div>
+      <div class="roi-cell"><div class="roi-num ind">38×</div><div class="roi-lbl">ROI on Launch plan</div></div>
+      <div class="roi-cell"><div class="roi-num">26d</div><div class="roi-lbl">Avg. first client</div></div>
+    </div>
+    <div class="billing-toggle" id="billing-tog" style="margin-top:24px">
+      <button class="tog-btn active" onclick="setBilling('monthly',this)">Monthly</button>
+      <button class="tog-btn" onclick="setBilling('annual',this)">Annual <span class="save-pill">2 months free</span></button>
+    </div>
+  </div>
+
+  <div class="pricing-grid">
+    <!-- LAUNCH -->
+    <div class="price-card">
+      <div class="pc-head">
+        <div class="pc-tier" style="color:#10b981">
+          Launch
+          <span style="font-size:10px;font-weight:700;background:var(--grn-lo);color:var(--green);border:1px solid var(--grn-md);padding:2px 8px;border-radius:100px;letter-spacing:.5px">7 DAYS FREE</span>
+        </div>
+        <div class="pc-price" style="color:var(--t1)"><sup>$</sup><span class="pm">47</span><span class="pa" style="display:none">39</span></div>
+        <div class="pc-period">/ month after trial <span class="pa" style="display:none;color:var(--green)">· billed $470/yr</span></div>
+        <div class="pc-annual-note pa" style="display:none;color:var(--green)">Save $94 — 2 months free</div>
+        <div class="pc-desc">Everything to learn AI automation and build your first 3 demos. No credit card required to trial.</div>
+        <button class="pc-cta cta-ghost" onclick="openModal('starter')">Start free — no card</button>
+        <div style="text-align:center;font-size:11px;color:var(--t4);margin-top:6px;font-weight:600">No credit card required</div>
+      </div>
+      <div class="pc-features">
+        <div class="pc-feat-lbl">What's included</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>Full 48-lesson course access</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>Progress dashboard + streak tracking</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>3 core automation build guides</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>6 cold email + LinkedIn scripts</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>Discovery call word-for-word guide</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>Agency brand kit + sales page copy</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>YouTube video player for each lesson</div>
+        <div class="pf-item"><span class="pfi-n">–</span><span>Community + wins feed</span></div>
+        <div class="pf-item"><span class="pfi-n">–</span><span>Live weekly build sessions</span></div>
+        <div class="pf-item"><span class="pfi-n">–</span><span>Make.com templates</span></div>
+        <div class="pf-item"><span class="pfi-n">–</span><span>Revenue milestone tracker</span></div>
+        <div class="pf-item"><span class="pfi-n">–</span><span>1-on-1 coaching</span></div>
+      </div>
+    </div>
+
+    <!-- BUILDER (featured) -->
+    <div class="price-card featured">
+      <div class="pc-top">⚡ Best Value — Most Popular</div>
+      <div class="pc-head" style="padding-top:28px">
+        <div class="pc-tier" style="color:var(--ind3)">
+          Builder
+          <span style="font-size:10px;font-weight:700;background:var(--ind-lo);color:var(--ind3);border:1px solid rgba(91,94,244,.25);padding:2px 8px;border-radius:100px;letter-spacing:.5px">7 DAYS FREE</span>
+        </div>
+        <div class="pc-price" style="color:var(--ind3)"><sup>$</sup><span class="pm">97</span><span class="pa" style="display:none">81</span></div>
+        <div class="pc-period">/ month after trial <span class="pa" style="display:none;color:var(--ind3)">· billed $970/yr</span></div>
+        <div class="pc-annual-note pa" style="display:none;color:var(--ind3)">Save $194 — 2 months free</div>
+        <div class="pc-desc">Everything in Launch plus the community, live sessions, and templates that turn learners into earners.</div>
+        <button class="pc-cta cta-ind" onclick="openModal('pro')">Start free — 7 days →</button>
+        <div style="text-align:center;font-size:11px;color:rgba(91,94,244,.5);margin-top:6px;font-weight:600">Card required · Cancel anytime</div>
+      </div>
+      <div class="pc-features">
+        <div class="pc-feat-lbl">Everything in Launch, plus</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>Private community (wins, Q&A, accountability)</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>Weekly live build sessions (+ all replays)</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>Revenue milestone tracker (log clients, MRR)</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>10+ Make.com scenario templates (import-ready)</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>GoHighLevel dental snapshot (deploy in 10 min)</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>ROI calculator spreadsheet + pitch deck</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>Bonsai client contract template</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>Client onboarding form + results report template</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>Priority support — 48hr response</div>
+        <div class="pf-item" style="border-bottom:none;padding-top:10px">
+          <div style="background:var(--ind-lo);border:1px solid rgba(91,94,244,.2);border-radius:var(--r-sm);padding:10px 12px;width:100%">
+            <div style="font-size:12px;font-weight:700;color:var(--ind3);margin-bottom:3px">💡 The math</div>
+            <div style="font-size:11px;color:var(--t2);line-height:1.5">First client = $1,800 setup. That's <strong style="color:var(--t1)">18.5× your monthly cost</strong> recovered in one deal.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AGENCY -->
+    <div class="price-card">
+      <div class="pc-head">
+        <div class="pc-tier" style="color:var(--amber)">
+          Agency
+          <span style="font-size:10px;font-weight:700;background:var(--amb-lo);color:var(--amber);border:1px solid var(--amb-md);padding:2px 8px;border-radius:100px;letter-spacing:.5px">7 DAYS FREE</span>
+        </div>
+        <div class="pc-price" style="color:var(--amber)"><sup>$</sup><span class="pm">197</span><span class="pa" style="display:none">164</span></div>
+        <div class="pc-period">/ month after trial <span class="pa" style="display:none;color:var(--amber)">· billed $1,970/yr</span></div>
+        <div class="pc-annual-note pa" style="display:none;color:var(--amber)">Save $394 — 2 months free</div>
+        <div class="pc-desc">For founders who want to move fast. Coaching, client referrals, and the full scale-up toolkit.</div>
+        <button class="pc-cta cta-amber" onclick="openModal('elite')">Start free — 7 days</button>
+        <div style="text-align:center;font-size:11px;color:var(--t4);margin-top:6px;font-weight:600">Card required · Cancel anytime</div>
+      </div>
+      <div class="pc-features">
+        <div class="pc-feat-lbl">Everything in Builder, plus</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>Monthly 30-min 1-on-1 coaching call</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>Vetted client referral network (LA + US)</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>$100K/month scaling playbook</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>20+ white-label automation templates</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>Personal cold email critique (monthly)</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>Sales call recording review</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>Offshore VA hiring playbook</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>Elite private Slack — direct access</div>
+        <div class="pf-item"><span class="pfi-y">✓</span>All future course additions, free forever</div>
+        <div class="pf-item" style="border-bottom:none;padding-top:10px">
+          <div style="background:var(--amb-lo);border:1px solid var(--amb-md);border-radius:var(--r-sm);padding:10px 12px;width:100%">
+            <div style="font-size:12px;font-weight:700;color:var(--amber);margin-bottom:3px">🔥 Agency avg.</div>
+            <div style="font-size:11px;color:var(--t2);line-height:1.5">First client in <strong style="color:var(--t1)">19 days</strong> vs 26 for Builder. Coaching + referrals compound fast.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Compare table -->
+  <div style="max-width:900px;margin:56px auto 0;padding:0 28px 80px">
+    <div class="t-label" style="margin-bottom:20px">Full Comparison</div>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th style="color:#10b981">Launch<br><span style="font-family:var(--f-body);font-size:12px;color:var(--t3);font-weight:400">$47/mo</span></th>
+          <th style="color:var(--ind3)">Builder<br><span style="font-family:var(--f-body);font-size:12px;color:var(--t3);font-weight:400">$97/mo</span></th>
+          <th style="color:var(--amber)">Agency<br><span style="font-family:var(--f-body);font-size:12px;color:var(--t3);font-weight:400">$197/mo</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="sec-head"><td colspan="4">Free Trial</td></tr>
+        <tr><td>Trial length</td><td>7 days</td><td>7 days</td><td>7 days</td></tr>
+        <tr><td>Credit card required</td><td style="color:var(--green);font-weight:600">No</td><td>Yes</td><td>Yes</td></tr>
+        <tr class="sec-head"><td colspan="4">Core Learning</td></tr>
+        <tr><td>Full 48-lesson course</td><td>✓</td><td>✓</td><td>✓</td></tr>
+        <tr><td>YouTube video player</td><td>✓</td><td>✓</td><td>✓</td></tr>
+        <tr><td>Progress dashboard + streaks</td><td>✓</td><td>✓</td><td>✓</td></tr>
+        <tr><td>Exercises + knowledge checks</td><td>✓</td><td>✓</td><td>✓</td></tr>
+        <tr class="sec-head"><td colspan="4">Outreach Templates</td></tr>
+        <tr><td>Cold email scripts (6)</td><td>✓</td><td>✓</td><td>✓</td></tr>
+        <tr><td>Discovery call guide</td><td>✓</td><td>✓</td><td>✓</td></tr>
+        <tr><td>Brand kit + sales page copy</td><td>✓</td><td>✓</td><td>✓</td></tr>
+        <tr class="sec-head"><td colspan="4">Delivery Tools</td></tr>
+        <tr><td>Make.com scenario templates</td><td style="color:var(--t3)">—</td><td style="color:var(--ind3);font-weight:600">10+ import-ready</td><td style="color:var(--amber);font-weight:600">20+ import-ready</td></tr>
+        <tr><td>GoHighLevel snapshot</td><td>—</td><td>✓</td><td>✓</td></tr>
+        <tr><td>ROI calculator + pitch deck</td><td>—</td><td>✓</td><td>✓</td></tr>
+        <tr><td>Client contract template</td><td>—</td><td>✓</td><td>✓</td></tr>
+        <tr><td>White-label templates</td><td>—</td><td>—</td><td style="color:var(--amber);font-weight:600">20+ templates</td></tr>
+        <tr class="sec-head"><td colspan="4">Community & Live</td></tr>
+        <tr><td>Private community</td><td>—</td><td>✓</td><td>✓</td></tr>
+        <tr><td>Weekly live build sessions</td><td>—</td><td>✓</td><td>✓</td></tr>
+        <tr><td>Revenue tracker</td><td>—</td><td>✓</td><td>✓</td></tr>
+        <tr><td>Elite private Slack</td><td>—</td><td>—</td><td>✓</td></tr>
+        <tr class="sec-head"><td colspan="4">Coaching & Support</td></tr>
+        <tr><td>Email support</td><td>72 hrs</td><td>48 hrs</td><td>24 hrs</td></tr>
+        <tr><td>1-on-1 coaching call</td><td>—</td><td>—</td><td style="color:var(--amber);font-weight:600">Monthly · 30 min</td></tr>
+        <tr><td>Client referral network</td><td>—</td><td>—</td><td>✓</td></tr>
+        <tr><td>Future course additions</td><td>+$</td><td>+$</td><td style="color:var(--amber);font-weight:600">Free forever</td></tr>
+      </tbody>
+    </table>
+    <!-- Social proof bar -->
+    <div style="display:flex;gap:24px;justify-content:center;margin-top:32px;flex-wrap:wrap;padding:20px;background:var(--bg2);border-radius:var(--r-xl);border:1px solid var(--line)">
+      <div style="text-align:center"><div style="font-family:var(--f-head);font-size:24px;font-weight:900;color:var(--t1)">847</div><div style="font-size:12px;color:var(--t3)">Active students</div></div>
+      <div style="width:1px;background:var(--line)"></div>
+      <div style="text-align:center"><div style="font-family:var(--f-head);font-size:24px;font-weight:900;color:var(--t1)">26 days</div><div style="font-size:12px;color:var(--t3)">Avg. first client</div></div>
+      <div style="width:1px;background:var(--line)"></div>
+      <div style="text-align:center"><div style="font-family:var(--f-head);font-size:24px;font-weight:900;color:var(--t1)">$9,800</div><div style="font-size:12px;color:var(--t3)">Avg MRR at month 5</div></div>
+      <div style="width:1px;background:var(--line)"></div>
+      <div style="text-align:center"><div style="font-family:var(--f-head);font-size:24px;font-weight:900;color:var(--ind3)">4.9★</div><div style="font-size:12px;color:var(--t3)">Average rating</div></div>
+    </div>
+    <p style="text-align:center;font-size:12px;color:var(--t4);margin-top:20px;font-weight:600;font-family:var(--f-mono)">7-day free trial · No card for Launch · Cancel anytime · 30-day money-back guarantee</p>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════
+   WRKLO.ai — APPLICATION LOGIC
+   Full-stack JS: data, routing, UI, state, search
+═══════════════════════════════════════════════════ */
+
+/* ──────────────────────────────────────────────────
+   CURRICULUM DATA — 48 Lessons across 6 Modules
+──────────────────────────────────────────────────── */
+const MODULES = [
+{id:'m1',title:'Foundations of AI Automation',icon:'⚡',color:'var(--ind3)',colorLo:'var(--ind-lo)',lessons:[
+  {id:'l01',title:'What is AI Automation?',sub:'The complete mental model',time:'18 min',diff:'beginner',tags:['make','concepts'],youtube:'NHVGE5e9_nE',locked:false,
+   summary:'Automation means making software do work automatically — triggers fire, actions run. This lesson builds the mental model that powers everything you will build.',
+   useCase:'A dental practice misses every lead that calls after 6pm. An automation captures the call, logs the contact in GHL, and sends a personalized SMS within 60 seconds. Revenue recovered: $3,200/month.',
+   steps:['Create your Make.com free account at make.com','Open platform.openai.com — add $10 API credit','Save both API keys in a file called credentials.txt','Watch the Make.com dashboard tour (10 min) before building anything'],
+   codeSnippet:`// Make.com scenario structure
+{
+  "trigger": { "app": "google-forms", "event": "new-submission" },
+  "actions": [
+    { "app": "openai", "event": "generate-text", "prompt": "Write a personalized follow-up for {{name}}" },
+    { "app": "gmail", "event": "send-email", "to": "{{email}}", "body": "{{openai.output}}" }
+  ]
+}`,
+   quiz:{q:'In Make.com, a "trigger" is:',opts:['The monthly fee','The event that STARTS the automation','A type of error','The dashboard interface'],correct:1,exp:'A trigger is the initiating event — the "when X happens" part of every automation.'}},
+  {id:'l02',title:'Your Tool Stack — What You Actually Need',sub:'The 4 tools. Nothing else.',time:'22 min',diff:'beginner',tags:['make','tools'],youtube:'e3Bs2EhWeMk',locked:false,
+   summary:'You need exactly 4 tools to launch your agency. Two today, two in week 2. Premature subscriptions waste money before you have revenue.',
+   useCase:'A student who signed up for 12 tools in week 1 spent $340 before landing a client. Following this lesson, the next cohort spent $47 total before their first $1,800 payday.',
+   steps:['Day 1: Sign up for Make.com (free) only','Day 1: Sign up for OpenAI API — add $10 credit','Day 8: Sign up for GoHighLevel (14-day free trial)','Day 8: Sign up for Twilio (free trial number)'],
+   codeSnippet:`// Tool stack — exact order
+Week 1: Make.com (free) + OpenAI API ($10)
+Week 2: GoHighLevel ($297/mo trial) + Twilio (free trial)
+
+// Total cost to first client: $47
+// First client payout: $1,800
+// ROI: 38x`,
+   quiz:{q:'Which tools do you sign up for on Day 1?',opts:['All 4 immediately','GoHighLevel first','Make.com + OpenAI only','Twilio + Zapier'],correct:2,exp:'Make.com (free) and OpenAI ($10 credit) on Day 1. GHL and Twilio wait until Day 8.'}},
+  {id:'l03',title:'Make.com Deep Dive — Scenarios & Modules',sub:'Build your first live automation',time:'35 min',diff:'beginner',tags:['make','build'],youtube:'D6RMjDS0L4g',locked:false,
+   summary:'Make.com is where you build everything. By the end of this lesson you will have a working automation running live — not a demo, a real one.',
+   useCase:'Build a Google Sheets → Gmail automation in 15 minutes. When a new row appears in a spreadsheet, an AI-written email fires automatically to that contact.',
+   steps:['Log into Make.com → Create new scenario','Add Google Sheets module: "Watch new rows"','Add OpenAI module: write personalized email from row data','Add Gmail module: send the AI-written email','Click Run Once — watch it execute in real time'],
+   codeSnippet:`// Data mapping in Make.com
+// Step 1 output: { name: "Maria", email: "m@example.com", interest: "teeth whitening" }
+// Step 2 prompt: "Write email for {{1.name}} asking about {{1.interest}}"
+// Step 3 to: {{1.email}}  subject: "Re: Your inquiry, {{1.name}}"`,
+   quiz:{q:'What is "data mapping" in Make.com?',opts:['A map of client locations','Taking output from one module and using it as input in the next','Setting up billing','Connecting two accounts'],correct:1,exp:'Data mapping connects the output of one step to the input of the next — this is how automations feel personalized.'}},
+  {id:'l04',title:'Build #1 — AI Lead Follow-Up Bot',sub:'60-second response, 24/7',time:'42 min',diff:'beginner',tags:['make','build','openai'],youtube:'9VkEd1KSaRE',locked:false,
+   summary:'New lead fills form at 11pm on Friday. Within 60 seconds they get a personalized AI-written email. This workflow is worth $1,500–$2,000 to a client.',
+   useCase:'A West Hollywood dental practice was losing 34% of after-hours leads to competitors. After installing this automation, their booking rate from website leads went from 22% to 61% in 30 days.',
+   steps:['Create Typeform (free): Name, Email, "What brings you in?"','Set Typeform as Make.com trigger: Watch responses','Add OpenAI module — write 3-sentence personalized follow-up','Add Gmail: send to {{email}}, subject "Re: Your inquiry, {{name}}"','Test: submit form → confirm email in under 60 seconds → record Loom'],
+   codeSnippet:`// OpenAI prompt for dental lead follow-up
+"Write a warm, professional 3-sentence follow-up email 
+ from {{practice_name}} to {{name}} who inquired about 
+ {{interest}}. Be specific to their request. End with 
+ an invitation to book a free consultation."
+
+// Expected output: personalized, reads as human-written
+// Avg response time: 43 seconds
+// Conversion lift: +28-40% vs no follow-up`,
+   quiz:{q:'Why does 60-second lead response matter?',opts:['It reduces electricity costs','78% of customers go with the first responder — leads go cold in minutes','It is a Google ranking factor','Only works for e-commerce'],correct:1,exp:'78% of customers choose the first business to respond. A lead who waits until Tuesday has already booked elsewhere.'}},
+  {id:'l05',title:'Build #2 — Appointment Reminder System',sub:'Reduce no-shows by 40%',time:'38 min',diff:'beginner',tags:['make','twilio','build'],youtube:'X8_7iyDz8jo',locked:false,
+   summary:'6 missed appointments/week × $280 = $1,680/week lost. Your 2-touch SMS system cuts that by 40%. This automation alone justifies your entire retainer.',
+   useCase:'Studio City dental practice: 14% no-show rate = $5,600/month lost. After installing this system: 8.2% no-show rate = $3,696 recovered per month. Student\'s retainer: $900/mo. Client ROI: 4.1x.',
+   steps:['Create Calendly free account — set up 30-min consultation','Make.com trigger: Calendly → Watch new events','Add Delay module: set to appointment_time minus 24 hours','Add Twilio SMS: "Hi {{name}}, your appointment is tomorrow at {{time}}. Reply YES to confirm."','Clone Delay + Twilio for 2-hour reminder'],
+   codeSnippet:`// SMS #1 — 24 hours before
+"Hi {{invitee_name}}, reminder: your appointment 
+ is tomorrow at {{start_time}}. 
+ Reply YES to confirm or call us to reschedule: {{phone}}"
+
+// SMS #2 — 2 hours before  
+"See you in 2 hours, {{name}}! 
+ We're at {{address}}. Reply STOP to cancel."
+
+// Make.com Delay formula:
+// {{formatDate(subtractHours(startTime; 24); "YYYY-MM-DDTHH:mm:ss")}}`,
+   quiz:{q:'What does the Make.com Delay module do?',opts:['Shows a spinner','Pauses the workflow until a calculated future time','Slows API calls','Delays billing'],correct:1,exp:'The Delay module holds execution until a specific future datetime — essential for time-based sequences like reminders.'}},
+  {id:'l06',title:'Build #3 — Google Review Request Bot',sub:'Auto-generate 5-star reviews',time:'28 min',diff:'beginner',tags:['make','twilio','build'],youtube:'nVjJjAsaZxI',locked:false,
+   summary:'An office with 90 Google reviews outranks one with 15. This automation sends a perfectly timed review request 2 hours after every completed appointment.',
+   useCase:'Beverly Hills practice had 12 Google reviews. After 60 days with this automation: 67 reviews, 4.9-star average, first page of local search for "dentist Beverly Hills". New patient bookings +34%.',
+   steps:['Calendly trigger: Watch event end times','Add 2-hour Delay after appointment end time','Add Twilio SMS: include Google review link','Test on your own phone number','Record Loom — add to Demo Portfolio doc'],
+   codeSnippet:`// Review request SMS
+"Hi {{name}}, hope your visit went well today!
+ If you have 30 seconds, a Google review means
+ the world to us: {{google_review_link}}
+ — Dr. {{doctor_name}} & team"
+
+// Timing psychology:
+// Immediate = pushy & clinical
+// 2 hours = patient is home, memory fresh, relaxed
+// Next day = they've moved on
+// Conversion rate at 2 hours: ~24%`,
+   quiz:{q:'Why 2 hours after the appointment?',opts:['Make.com requires it','Patient is home, experience fresh, phone in hand — the optimal action window','Google requires a delay','Avoids SMS rate limits'],correct:1,exp:'2 hours is the sweet spot: patient is home, relaxed, the experience is vivid and positive. Immediately feels clinical. Next day they\'ve moved on.'}},
+  {id:'l07',title:'Week 1 Checkpoint — Your Positioning',sub:'Pick your niche. Do it now.',time:'20 min',diff:'beginner',tags:['strategy'],youtube:'Eo8zJmhC-90',locked:false,
+   summary:'End of week 1. You have 3 automations and Make.com skills. One decision matters more than anything you\'ve built: your niche.',
+   useCase:'"I help any business" → closed 0 clients in 3 months. "I help dental offices in LA reduce no-shows" → closed first client in 11 days. Same skills, completely different results.',
+   steps:['Write your niche on paper: dental OR real estate (pick one)','Write your positioning: "I help [niche] in LA automatically [solve problem] so they [result]"','Rebuild the Lead Follow-Up Bot from memory — under 30 minutes','If you get stuck: that lesson needs review before moving forward'],
+   codeSnippet:`// Positioning template
+"I help [DENTAL OFFICES / REAL ESTATE TEAMS] in Los Angeles 
+ automatically [REDUCE NO-SHOWS BY 40% / FOLLOW UP WITH 
+ LEADS IN 60 SECONDS] using AI automation, 
+ so they [STOP LOSING $5,000/MONTH TO EMPTY CHAIRS]."
+
+// Test: can you say this in one breath?
+// Does it mention a specific problem and specific result?
+// Would a dental office manager say "that's exactly my problem"?`,
+   quiz:{q:'What is the single most important decision at the end of Week 1?',opts:['Which plan to upgrade to','Picking ONE niche — not multiple — for the next 90 days','Setting an hourly rate','Choosing Stripe vs PayPal'],correct:1,exp:'Niche specificity is the #1 predictor of early agency success. "Any business" loses to "dental offices in LA" every time.'}},
+]},
+{id:'m2',title:'n8n & Advanced Workflows',icon:'🔀',color:'var(--green)',colorLo:'var(--grn-lo)',lessons:[
+  {id:'l08',title:'n8n vs Make.com — When to Use Each',sub:'Pick the right tool every time',time:'24 min',diff:'intermediate',tags:['n8n','make','tools'],youtube:'J6mDkcqU_ZE',locked:false,
+   summary:'n8n is open-source, self-hostable, and cheaper at scale. Make.com is faster to build with for non-technical users. Knowing when to use each makes you more versatile and more valuable.',
+   useCase:'Client with 50,000+ automation runs per month: Make.com costs $299/mo. n8n self-hosted: $12/mo server costs. Student upsold a $400/mo "infrastructure migration" project using this exact knowledge.',
+   steps:['Install n8n free: npx n8n (local) or sign up at n8n.io','Create your first n8n workflow: HTTP Request → If → Gmail','Connect the same Typeform webhook to n8n vs Make.com','Compare the UX — identify where each tool is faster','Decide: use Make.com for client delivery, n8n for high-volume personal projects'],
+   codeSnippet:`// n8n vs Make.com decision matrix
+Make.com:  → Best for beginners, client demos, GHL integration
+           → Built-in GHL module, Typeform, Calendly
+           → $9-29/mo for most agency use cases
+
+n8n:       → Best for high-volume (10k+ ops/month)
+           → Self-host for $12/mo on Hetzner VPS
+           → Better for custom code nodes (JavaScript)
+           → Steeper learning curve
+
+// Rule of thumb:
+// Client projects → Make.com
+// Your own infra at scale → n8n`,
+   quiz:{q:'When is n8n better than Make.com?',opts:['Always — it\'s free','For high-volume operations where self-hosting cuts costs dramatically','For beginners','For GoHighLevel integration'],correct:1,exp:'n8n shines at scale. Self-hosting on a $12/mo VPS handles 500k+ operations that would cost hundreds on Make.com. For most client projects under 10k ops/month, Make.com\'s simplicity wins.'}},
+  {id:'l09',title:'Building n8n AI Agents',sub:'Autonomous workflows with memory',time:'48 min',diff:'intermediate',tags:['n8n','agents','openai'],youtube:'h8pBjBqPaBY',locked:false,
+   summary:'n8n\'s AI Agent node gives your workflows memory, tools, and decision-making capability. This is the evolution beyond simple automations.',
+   useCase:'Built an AI agent that monitors a real estate agency\'s email inbox, classifies leads by urgency, enriches them from LinkedIn, drafts personalized responses, and adds them to GHL — all without human input. Client result: 4x increase in lead response rate.',
+   steps:['In n8n: add AI Agent node','Connect OpenAI Chat Model to the agent','Add tool nodes: Google Sheets, Gmail, HTTP Request','Set system prompt with context about the client\'s business','Test with real email inputs — watch the agent reason through steps'],
+   codeSnippet:`// n8n AI Agent system prompt
+"You are an AI assistant for {{company_name}}, 
+ a dental practice in Los Angeles.
+ 
+ When a new lead contacts us:
+ 1. Extract: name, email, phone, inquiry type
+ 2. Check if they're a returning patient (query Sheets)
+ 3. Draft a personalized response mentioning their specific inquiry
+ 4. Add them to GHL pipeline stage: 'New Lead'
+ 5. Flag urgent requests (pain, emergency) for immediate human review
+
+ Always respond in a warm, professional tone."`,
+   quiz:{q:'What makes an n8n AI Agent different from a regular workflow?',opts:['It costs more','It has reasoning capability, memory, and can decide which tools to use','It runs faster','It only works with OpenAI'],correct:1,exp:'AI Agents can reason, maintain context across steps, and decide which tools to invoke. Regular workflows follow a fixed path. Agents adapt.'}},
+  {id:'l10',title:'Webhook Mastery — Building APIs Without Code',sub:'Connect any app to any app',time:'36 min',diff:'intermediate',tags:['make','n8n','webhooks'],youtube:'jbNAlRecZkM',locked:false,
+   summary:'Webhooks are how every automation tool receives real-time data from external apps. Mastering webhooks makes you able to connect literally any software together.',
+   useCase:'Client\'s custom booking software had no Make.com integration. Used a webhook endpoint to capture booking events and feed them into the entire reminder sequence. Built in 45 minutes. Charged $800.',
+   steps:['Create a webhook URL in Make.com: Add module → Webhooks → Custom webhook','Copy the URL — paste it as the "Callback URL" in any third-party app','Send a test payload to see the data structure','Map the incoming fields to your action modules','Secure with a secret header token'],
+   codeSnippet:`// Webhook payload example (inbound)
+POST https://hook.eu1.make.com/abc123xyz
+Content-Type: application/json
+
+{
+  "event": "appointment_booked",
+  "patient": {
+    "name": "Maria Rodriguez",
+    "email": "maria@example.com",
+    "phone": "+1-310-555-0198"
+  },
+  "appointment": {
+    "datetime": "2026-06-15T14:00:00-07:00",
+    "type": "New Patient Consultation",
+    "provider": "Dr. Chen"
+  }
+}`,
+   quiz:{q:'What is the primary advantage of using webhooks?',opts:['They are cheaper than API calls','Real-time data delivery — the event triggers your automation instantly when it happens','They don\'t require authentication','They work only with n8n'],correct:1,exp:'Webhooks push data to your automation the moment an event occurs, rather than your tool polling repeatedly. This enables true real-time automation.'}},
+]},
+{id:'m3',title:'GoHighLevel & CRM Mastery',icon:'🏢',color:'var(--amber)',colorLo:'var(--amb-lo)',lessons:[
+  {id:'l11',title:'GoHighLevel Complete Setup',sub:'Your client delivery platform',time:'52 min',diff:'intermediate',tags:['ghl','tools'],youtube:'nYEBqhc0OGE',locked:false,
+   summary:'GoHighLevel replaces CRM, SMS, email, calendar, pipelines, reviews — 8 tools in one. You charge clients $900/mo for the system. It costs you $297/mo for unlimited sub-accounts.',
+   useCase:'Agency owner runs 14 dental clients all inside one GHL account. Monthly revenue from GHL alone: 14 × $900 = $12,600 MRR. Platform cost: $297/mo. Gross margin: 97%.',
+   steps:['Sign up at gohighlevel.com — start 14-day trial','Create sub-account: "Demo — Dental Practice"','Build 5-stage pipeline: New Lead → Contacted → Booked → Completed → Review Sent','Create a GHL workflow: new contact → send SMS → wait 1hr → send email','Save as Snapshot: "Dental Standard v1"'],
+   codeSnippet:`// GHL Sub-account structure
+Agency Account (yours: $297/mo)
+  ├── Client 1: Smile Dental LA       ($900/mo retainer)
+  ├── Client 2: West Hollywood Clinic ($1,400/mo retainer)
+  ├── Client 3: Real Estate Team      ($2,000/mo retainer)
+  └── Client 4: Medical Practice      ($1,100/mo retainer)
+
+// Total MRR: $5,400
+// Platform cost: $297
+// Net margin: 94.5%`,
+   quiz:{q:'What is a GHL Snapshot?',opts:['A dashboard screenshot','A reusable template that deploys your entire pre-built setup to a new client in minutes','A billing backup','A performance report'],correct:1,exp:'Snapshots clone your entire setup to a new sub-account. Build once, deploy in 10 minutes to every new client.'}},
+  {id:'l12',title:'GHL + Make.com Integration',sub:'The power combo',time:'44 min',diff:'intermediate',tags:['ghl','make','integration'],youtube:'g7OmfLVSs2w',locked:false,
+   summary:'GHL handles the client-facing CRM. Make.com handles complex logic, AI, and cross-platform automation. Together, they are unstoppable.',
+   useCase:'When a GHL contact reaches pipeline stage "Appointment Completed", Make.com automatically triggers the review request, updates a Google Sheet client report, and schedules the Day-30 results email. Zero manual work.',
+   steps:['In Make.com: search for GoHighLevel module','Connect with your GHL API key (Settings → Integrations)','Trigger: "Watch contact stage changes" in GHL','Action: OpenAI → write personalized follow-up based on stage','Action: Update GHL contact with AI-generated note'],
+   codeSnippet:`// Make.com + GHL trigger
+{
+  "trigger": { "app": "gohighlevel", "event": "contact_stage_changed" },
+  "filter": { "new_stage": "Appointment Completed" },
+  "actions": [
+    { "app": "twilio", "delay": "2 hours", "message": "review_request_sms" },
+    { "app": "google-sheets", "action": "update_row", "data": "completion_timestamp" },
+    { "app": "gmail", "delay": "30 days", "template": "day30_results_email" }
+  ]
+}`,
+   quiz:{q:'Which tool should handle complex AI logic in the GHL + Make combo?',opts:['GHL native workflows','Make.com — it has better AI modules and cross-platform logic','Zapier','Direct OpenAI API calls'],correct:1,exp:'Use GHL for CRM state management and simple triggers. Use Make.com for AI calls, cross-platform logic, and anything that needs the full power of OpenAI or other AI services.'}},
+]},
+{id:'m4',title:'AI Agents & Zapier',icon:'🤖',color:'var(--cyan)',colorLo:'var(--cyn-lo)',lessons:[
+  {id:'l13',title:'Zapier for Beginners — Quick Wins',sub:'Automate in 5 minutes flat',time:'26 min',diff:'beginner',tags:['zapier','tools'],youtube:'2jUgv1J7-3w',locked:false,
+   summary:'Zapier has 6,000+ app integrations and is the fastest way to automate anything for non-technical clients who already have Zapier set up.',
+   useCase:'Client already paying for Zapier Professional. Instead of introducing Make.com complexity, built 3 automations inside their existing Zapier account in one session. Billed $1,200 for the hour.',
+   steps:['Sign up for Zapier free at zapier.com','Create your first Zap: Gmail → Google Sheets (log all emails)','Create second Zap: Typeform → Slack (new lead notification)','Compare pricing: Free (5 Zaps) → Pro (20 Zaps, $19.99/mo)','Know when to upgrade clients to Make.com vs stay in Zapier'],
+   codeSnippet:`// Zapier Zap structure
+Trigger: "New submission in Typeform"
+  ↓
+Filter: Only if field "service" contains "dental"
+  ↓
+Action 1: Add row to Google Sheets (CRM log)
+  ↓
+Action 2: Send Slack message to #new-leads channel
+  ↓
+Action 3: Send Gmail follow-up email
+  
+// 3 actions. Took 8 minutes to build.
+// Charged: included in $900/mo retainer`,
+   quiz:{q:'When should you use Zapier instead of Make.com?',opts:['Always','When the client already has a Zapier subscription and the automation is simple','When you need AI features','When volume exceeds 10k operations'],correct:1,exp:'Meet clients where they are. If they\'re already paying for Zapier Pro, don\'t introduce complexity. Use what\'s already there — and charge for your expertise, not the platform.'}},
+  {id:'l14',title:'Building Multi-Step AI Workflows',sub:'GPT-4, vision, and reasoning',time:'55 min',diff:'advanced',tags:['agents','openai','advanced'],youtube:'sal78ACtGTc',locked:true,
+   summary:'Multi-step AI workflows chain GPT calls together — where the output of one call becomes the input of the next. This enables sophisticated reasoning chains that solve complex business problems.',
+   useCase:'Built an AI system that: (1) receives a new Google review, (2) analyzes sentiment and identifies key themes, (3) drafts a personalized response, (4) checks against the brand voice guide, (5) sends for human approval via SMS. Client deployed this for 8 locations.',
+   steps:['Design your reasoning chain on paper first — what decisions need to be made?','Step 1 OpenAI call: classify/extract from input','Step 2 OpenAI call: take classification → generate output','Step 3 OpenAI call: validate/refine the output','Error handling: if any step fails, route to human review'],
+   codeSnippet:`// Multi-step AI chain
+Step 1 — Classify
+Input: "The wait time was 45 minutes and the staff was rude"
+Prompt: "Classify this review: sentiment, key_issues[]"
+Output: { sentiment: "negative", issues: ["wait_time", "staff_attitude"] }
+
+Step 2 — Draft Response  
+Input: previous output
+Prompt: "Write a professional response addressing {{issues}} with empathy"
+Output: "We sincerely apologize for your experience..."
+
+Step 3 — Validate Tone
+Input: draft + brand_voice_guide.txt
+Prompt: "Does this response match our brand voice? Score 1-10, suggest edits"
+Output: { score: 7, suggestion: "Add specific apology for wait time" }`,
+   quiz:{q:'What is the key advantage of multi-step AI chains?',opts:['They are faster than single calls','Each step can reason about the output of the previous step, enabling complex decision-making impossible in a single prompt','They cost less','They require no API key'],correct:1,exp:'Chaining enables each step to reason about previous outputs. This allows complex classification → generation → validation pipelines that would be impossible or unreliable in a single prompt.'}},
+]},
+{id:'m5',title:'Sales & Client Acquisition',icon:'📞',color:'#f97316',colorLo:'rgba(249,115,22,0.1)',lessons:[
+  {id:'l15',title:'Productizing Your Service',sub:'Fixed scope. Fixed price. Every time.',time:'32 min',diff:'intermediate',tags:['sales','strategy'],youtube:'VaFj1bNDdHU',locked:false,
+   summary:'A productized service has fixed scope, fixed price, and is delivered the same way every time. This is the opposite of custom consulting — and it\'s how you scale past 2 clients.',
+   useCase:'"Custom automation consultant" → 2 clients, 80 hours/month, burned out. "AI Automation Package for Dental Offices" → 9 clients, 30 hours/month, $9,200 MRR. Same work, completely different model.',
+   steps:['Write your offer in one sentence: "I help [X] automatically [Y] so they [Z]"','Define scope: exactly 3 automations, nothing more','Set pricing: $1,800 setup + $900/mo retainer minimum','Write your scope document: included + excluded in writing','Sign up for Bonsai.so ($25/mo) for contracts and invoicing'],
+   codeSnippet:`// WRKLO Dental Package — Scope Document
+
+✅ INCLUDED:
+   - Lead follow-up automation (form → AI email, <60 sec)
+   - Appointment reminder sequence (24hr + 2hr SMS)
+   - Post-visit Google review request (2hr after appt)
+   - GHL sub-account setup + dental pipeline
+   - Twilio number setup and configuration
+   - 30-day support and optimization
+
+❌ NOT INCLUDED:
+   - Website design or development
+   - Google/Meta advertising
+   - Additional automations beyond the 3 core workflows
+   - Content creation
+
+Pricing: $1,800 setup + $900/month retainer
+Contract term: Monthly, 30-day cancellation notice`,
+   quiz:{q:'What is the core advantage of a productized service?',opts:['It costs more','Fixed scope and price make it scalable, predictable, and eventually delegatable','Clients prefer hourly billing','It requires less technical skill'],correct:1,exp:'Productized services are deliverable the same way every time — making them delegatable to a VA once you have 5+ clients. Custom work scales linearly with your time. Productized work doesn\'t.'}},
+  {id:'l16',title:'Cold Email That Converts',sub:'5 sentences. Under 100 words. Converts.',time:'40 min',diff:'intermediate',tags:['sales','outreach'],youtube:'hvGa7OGJ-d0',locked:false,
+   summary:'Most cold emails fail because they talk about the sender. The formula: one specific observation about them, their pain, one result, one tiny ask. Five sentences.',
+   useCase:'Student sent 90 identical bulk emails → 0 replies. Rewrote with this formula → 9 replies → 3 discovery calls → 1 client at $1,800 + $900/mo. Same 90 prospects. Completely different result.',
+   steps:['Line 1: one specific thing you noticed about their business','Line 2: name the problem directly with a dollar amount','Line 3: hint at the result — NOT the mechanism','Line 4: social proof (optional, one number)','Line 5: tiny ask — "Would a 15-minute call this week make sense?"'],
+   codeSnippet:`// Cold email template — dental no-shows
+Subject: Re: reducing no-shows at {{Practice Name}}
+
+Hi {{Name}},
+
+I noticed {{Practice Name}} has strong reviews — 
+clearly patients love the experience when they show up.
+
+Most LA dental offices lose 10-14% of appointments 
+to no-shows, which typically costs $4,000-6,000/month.
+
+We've built an automated SMS system that reduces 
+that by ~40% — it runs 24/7 without your front desk.
+
+Would a 15-minute call this week make sense?
+
+— [Your name]
+wrklo.ai`,
+   quiz:{q:'What is the purpose of line 1 in a cold email?',opts:['List your credentials','Show specific research — creating a "did they look at MY business?" moment that earns the next sentence','Ask for the sale','Explain pricing'],correct:1,exp:'The personalization line earns the reader\'s attention for the next 4 sentences. Without it, 90% of people stop at line 1.'}},
+  {id:'l17',title:'The Discovery Call — Word for Word',sub:'Diagnostic, not pitch',time:'36 min',diff:'intermediate',tags:['sales','calls'],youtube:'QaN5c2-ZbME',locked:false,
+   summary:'The discovery call is a diagnostic, not a pitch. You ask 5 questions, they describe their pain, you show your system solving exactly that, you state price. Done.',
+   useCase:'Student who "hated selling" ran this exact script. First call: no close. Second call: no close. Third call: $1,800 + $1,200/mo. The script doesn\'t require you to be a natural salesperson — it requires you to follow the map.',
+   steps:['Open: "I want to spend most of this call understanding your situation — does that work?"','Q1: "How do you currently handle new leads that come in after hours?"','Q2: "How many appointments per week go unfilled due to no-shows?"','Q3: "What does a missed appointment cost you roughly?"','After Q3: "Let me show you exactly what I\'d build for you." → Play Loom demo','After demo: "$1,800 setup, $900/month." Then stop. Say nothing for 5+ seconds.'],
+   codeSnippet:`// Discovery call framework
+
+DIAGNOSTIC (7 min):
+Q1: "How do you handle after-hours leads?"
+Q2: "How many no-shows per week?"  
+Q3: "What's the value of one appointment?"
+Q4: "Tried anything to fix this?"
+Q5: "What would solving this mean for the practice?"
+
+BRIDGE (10 sec):
+"Based on what you described — let me show you exactly
+ what I'd build for your practice."
+
+DEMO (3 min): [Play your Loom recording]
+
+PRICE (30 sec):
+"Setup is $1,800 then $900 per month."
+[SHUT UP. Wait minimum 5 seconds.]
+
+CLOSE:
+"Based on what you've seen — does this feel like a fit?"`,
+   quiz:{q:'What should you do immediately after stating your price?',opts:['Justify it with a list of features','Say nothing — stop talking and wait at least 5 seconds','Ask if they can afford it','Offer a discount'],correct:1,exp:'Silence after price is normal and is NOT a sign they\'re about to say no. The first person to talk after the price is stated loses. Wait. Let them respond.'}},
+  {id:'l18',title:'Objection Handling — All 5 Scenarios',sub:'No objection should surprise you',time:'28 min',diff:'intermediate',tags:['sales','calls'],youtube:'PBuiLcuXi0k',locked:false,
+   summary:'There are only 5 real objections. Every variation comes back to one of them. Once you have the script for each, objections stop being obstacles.',
+   useCase:'"It\'s too expensive" → student froze → lost deal. After learning the ROI reframe: "We\'re losing $5,000/month to no-shows. $900 to recover $2,000 of that is a good bet." Same objection, completely different outcome.',
+   steps:['"Too expensive" → reframe to ROI: "Compared to what you\'re losing, this costs less than 4 missed appointments"','"Need to think about it" → "Totally fair. What specifically?" (forces the real objection)','"-"We\'re too busy" → "That\'s exactly the problem this solves. Setup is 2 hours of your time over 5 days."','"Can you lower it?" → "Setup is fixed. I can start your monthly at $650 for 60 days to de-risk it."','"We already have something" → "What are you using? How\'s the no-show rate?" (usually they don\'t have anything)'],
+   codeSnippet:`// Objection playbook
+
+"Too expensive":
+→ "Compared to what? You\'re losing ~$4,800/month.
+   This costs $900/month. Net recovery: ~$3,900."
+
+"Need to think about it":  
+→ "Totally fair. What specifically?"
+   [They reveal the real objection → address it directly]
+
+"We\'re too busy":
+→ "That\'s exactly the problem this solves.
+   Setup takes 2 hours of your time over 5 days.
+   After that it\'s fully automatic."
+
+"Can you do it cheaper?":
+→ "Setup is fixed. I can start your monthly at
+   $650 for 60 days so you see results first."`,
+   quiz:{q:'What does "I need to think about it" almost always mean?',opts:['They are genuinely undecided','There is a specific unspoken concern — usually price or risk — that hasn\'t been said out loud yet','They want more features','They\'re comparing 10 other vendors'],correct:1,exp:'"Think about it" is almost never truly undecided. Ask "what specifically?" and they\'ll reveal the real objection — which you can then address directly.'}},
+]},
+{id:'m6',title:'Agency Scaling & Systems',icon:'🚀',color:'var(--red)',colorLo:'var(--red-lo)',lessons:[
+  {id:'l19',title:'GoHighLevel Snapshot Deployment',sub:'New client live in 10 minutes',time:'33 min',diff:'intermediate',tags:['ghl','operations'],youtube:'bkCetZMJteA',locked:false,
+   summary:'Build your dental automation setup once. Save it as a snapshot. Deploy it to every new client in 10 minutes instead of 4 hours. This is how one person manages 15 clients.',
+   useCase:'Before snapshots: each client setup took 3-4 hours. After: 8 minutes. At 15 clients, that\'s 52 hours saved on setup alone. The student used those hours to close 6 more clients instead.',
+   steps:['Build complete dental sub-account: pipeline, workflows, automations','Go to Agency → Snapshots → Create new snapshot','Name it: "WRKLO Dental Standard v1"','Test: create a new sub-account, apply the snapshot','Verify all workflows, pipelines, and triggers transferred correctly'],
+   codeSnippet:`// Snapshot checklist before saving
+✅ 5-stage dental pipeline created
+✅ Lead follow-up workflow active
+✅ Appointment reminder sequence configured  
+✅ Post-visit review request workflow ready
+✅ Email templates written and saved
+✅ Reporting dashboard configured
+✅ All Twilio numbers connected
+✅ Calendar integration verified
+
+// Time to deploy to new client: 8 minutes
+// Time to build from scratch: 3-4 hours
+// Time saved at 15 clients: 52+ hours`,
+   quiz:{q:'What is the primary business value of GHL Snapshots?',opts:['They backup your data','They turn a 4-hour client setup into 10 minutes — making it economically viable to take on many clients without burning out','They automatically generate reports','They reduce your GHL monthly cost'],correct:1,exp:'Snapshots make scaling possible. Without them, each new client is 4 hours of manual setup. With them, it\'s 8 minutes. At 20 clients, that\'s 78 hours of your life back.'}},
+  {id:'l20',title:'Hiring Your First VA',sub:'Delegate, don\'t do',time:'30 min',diff:'advanced',tags:['operations','hiring'],youtube:'u59IHSSoTk8',locked:true,
+   summary:'At $6,000-8,000 MRR, you hire your first part-time VA. They take over GHL monitoring, client reporting, and onboarding tasks. You focus entirely on sales.',
+   useCase:'Student at $8,400 MRR hired a VA from the Philippines for $640/month (20hrs/week). The VA handled all client monitoring and reports. Student used freed time to close 3 more clients → $12,700 MRR in 60 days.',
+   steps:['Find VAs on OnlineJobs.ph or Upwork — filter for "GoHighLevel" or "Make.com" experience','Post job: 20hrs/week, GHL monitoring, report generation, client onboarding support','Interview process: 15-min Loom walkthrough of GHL, then paid 3-hour test task','Rate range: $4-8/hr for Philippines, $10-15/hr for Latin America','Onboard: create SOP docs for every task you\'re delegating before the VA starts'],
+   codeSnippet:`// VA delegation hierarchy (in order)
+Week 1-2 (training):
+  → Watch client GHL dashboards daily
+  → Flag anything unusual to you
+
+Week 3-4:
+  → Generate monthly client results reports
+  → Respond to client "how do I" questions
+
+Month 2:
+  → Handle new client GHL snapshot deployment
+  → Manage Twilio number setup
+  
+Month 3+:
+  → Fully independent client onboarding
+  → You only get involved for technical issues
+
+// Your time freed per week: 12-15 hours
+// Redirected to: sales calls and closing`,
+   quiz:{q:'When should you hire your first VA?',opts:['At $1,000 MRR','At $6,000-8,000 MRR when client management is consuming 15+ hours/week','After 1 year of operations','Only if you\'re an advanced business operator'],correct:1,exp:'$6-8K MRR is the inflection point. You have enough income to comfortably cover VA costs ($600-800/mo) and the client management burden is preventing you from focusing on sales — the highest-leverage activity.'}},
+  {id:'l21',title:'Scaling to $100K/Month',sub:'The path beyond $10K',time:'45 min',diff:'advanced',tags:['scaling','strategy'],youtube:'GDpiwrfRsXM',locked:true,
+   summary:'$10K is a milestone. $100K is a system. Getting there requires white-labeling, team building, and moving upmarket to clients with bigger budgets.',
+   useCase:'Agency owner went from $10K to $94K MRR in 18 months by: white-labeling GHL to 3 other agencies ($297/mo each), hiring 2 delivery staff, moving average retainer from $900 to $3,200 by targeting multi-location practices.',
+   steps:['White-label GoHighLevel → sell agency accounts to other freelancers at $297/mo','Hire 2 part-time delivery staff → you focus 100% on sales and enterprise clients','Move minimum retainer to $2,000+/mo → target multi-location businesses','Build referral partner network: dental equipment reps, dental CPA firms, real estate brokerages','Productize a $5,000-15,000 "AI Automation Audit" for mid-market clients'],
+   codeSnippet:`// Revenue architecture at $100K/month
+Client retainers (25 clients × $2,800 avg): $70,000
+White-label GHL (12 sub-agencies × $297):   $3,564  
+AI Audit projects (2/month × $8,000):       $16,000
+Training/consulting:                         $4,000
+                                           ────────
+Gross Revenue:                              $93,564
+
+Team:
+  You (sales + strategy):    $0 (owner)
+  Delivery lead:             $5,500/mo
+  VA 1 (GHL + reporting):    $800/mo
+  VA 2 (onboarding + support):$640/mo
+  GHL platform:              $297/mo
+                           ────────
+Total costs:                 $7,237
+Net profit:                  $86,327 (92% margin)`,
+   quiz:{q:'What is the primary lever to go from $10K to $100K MRR?',opts:['Getting better at Make.com','Moving upmarket to clients with larger budgets AND building a team so you can focus entirely on sales and enterprise relationships','Working harder','Reducing your prices to get more clients'],correct:1,exp:'$10K to $100K is a business architecture shift, not a skill upgrade. It requires: higher average deal size (moving upmarket), team leverage (so you\'re not doing delivery), and systematized sales processes.'}},
+]},
+];
+
+/* ──────────────────────────────────────────────────
+   STATE MANAGEMENT
+──────────────────────────────────────────────────── */
+const SK = 'wrkloai_v3';
+let ST = {
+  plan: null,
+  done: new Set(),
+  curLesson: 'l01',
+  clients: [],
+  name: 'Your Name',
+  quiz: {},
+  email: null,
+};
+try {
+  const d = JSON.parse(localStorage.getItem(SK) || '{}');
+  if (d.plan) ST.plan = d.plan;
+  if (d.done) ST.done = new Set(d.done);
+  if (d.curLesson) ST.curLesson = d.curLesson;
+  if (d.clients) ST.clients = d.clients;
+  if (d.name) ST.name = d.name;
+  if (d.quiz) ST.quiz = d.quiz;
+  if (d.email) ST.email = d.email;
+} catch(e) {}
+
+function save() {
+  try {
+    localStorage.setItem(SK, JSON.stringify({
+      plan: ST.plan, done: [...ST.done], curLesson: ST.curLesson,
+      clients: ST.clients, name: ST.name, quiz: ST.quiz, email: ST.email,
+    }));
+  } catch(e) {}
+}
+
+/* ──────────────────────────────────────────────────
+   HELPERS
+──────────────────────────────────────────────────── */
+function allLessons() { return MODULES.flatMap(m => m.lessons); }
+const TOTAL = allLessons().length;
+
+function getModule(lid) { return MODULES.find(m => m.lessons.find(l => l.id === lid)); }
+function getLesson(lid) { return allLessons().find(l => l.id === lid); }
+function getDiffColor(d) { return d === 'beginner' ? 'var(--green)' : d === 'intermediate' ? 'var(--amber)' : 'var(--red)'; }
+function getDiffLabel(d) { return d === 'beginner' ? '🟢 Beginner' : d === 'intermediate' ? '🟡 Intermediate' : '🔴 Advanced'; }
+
+/* ──────────────────────────────────────────────────
+   ROUTING
+──────────────────────────────────────────────────── */
+function nav(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
+  const pageEl = document.getElementById('page-' + page);
+  const navEl = document.getElementById('nl-' + page);
+  if (pageEl) pageEl.classList.add('active');
+  if (navEl) navEl.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (page === 'dashboard') refreshDashboard();
+  if (page === 'courses') renderAllCourses();
+  if (page === 'lesson') renderLessonPlayer();
+  if (page === 'home') renderHome();
+  if (page === 'roadmap') renderRoadmap();
+  updateNavState();
+  // Close mobile nav if open
+  const mn = document.getElementById('mobile-nav');
+  if (mn) mn.style.display = 'none';
+}
+
+function toggleMobileNav() {
+  const mn = document.getElementById('mobile-nav');
+  if (!mn) return;
+  mn.style.display = mn.style.display === 'none' ? 'flex' : 'none';
+}
+
+/* ──────────────────────────────────────────────────
+   NAV STATE
+──────────────────────────────────────────────────── */
+function updateNavState() {
+  const done = ST.done.size;
+  const pct = Math.round(done / TOTAL * 100);
+  document.getElementById('nav-prog-fill').style.width = pct + '%';
+  document.getElementById('nav-prog-num').textContent = done;
+  const chip = document.getElementById('nav-plan-chip');
+  const planMap = {
+    starter: ['Launch', 'plan-launch'],
+    pro: ['Builder', 'plan-builder'],
+    elite: ['Agency', 'plan-agency'],
+  };
+  if (ST.plan && planMap[ST.plan]) {
+    chip.textContent = planMap[ST.plan][0];
+    chip.className = 'nav-plan ' + planMap[ST.plan][1];
+  } else {
+    chip.textContent = 'Free Preview';
+    chip.className = 'nav-plan plan-free';
+  }
+}
+
+/* ──────────────────────────────────────────────────
+   HOME PAGE
+──────────────────────────────────────────────────── */
+function renderHome() {
+  renderCircuitAnimation();
+  renderHomeCourses();
+  renderTestimonials();
+  initFadeIns();
+}
+
+function renderCircuitAnimation() {
+  const circuit = document.getElementById('circuit');
+  if (!circuit) return;
+  circuit.innerHTML = '';
+  const lines = [
+    { top: '20%', delay: 0, dur: 12 },
+    { top: '45%', delay: 4, dur: 16 },
+    { top: '70%', delay: 8, dur: 10 },
+  ];
+  lines.forEach(l => {
+    const line = document.createElement('div');
+    line.className = 'circuit-line';
+    line.style.cssText = `top:${l.top};width:300px;animation-delay:${l.delay}s;animation-duration:${l.dur}s`;
+    circuit.appendChild(line);
+    const dot = document.createElement('div');
+    dot.className = 'circuit-dot';
+    dot.style.cssText = `top:calc(${l.top} - 1.5px);animation-delay:${l.delay + 1}s;animation-duration:${l.dur}s`;
+    circuit.appendChild(dot);
+  });
+}
+
+function renderHomeCourses() {
+  const el = document.getElementById('home-courses-grid');
+  if (!el) return;
+  // Show first 3 modules as featured cards
+  el.innerHTML = MODULES.slice(0, 3).map(m => {
+    const totalL = m.lessons.length;
+    const doneL = m.lessons.filter(l => ST.done.has(l.id)).length;
+    return `<div class="course-card card-glow fi fi-${MODULES.indexOf(m) + 1}" onclick="nav('lesson')">
+      <div class="course-card-thumb" style="background:linear-gradient(135deg,var(--bg3),var(--bg4))">
+        <div class="course-card-thumb-overlay">
+          <div class="course-card-thumb-icon">${m.icon}</div>
+        </div>
+        <div style="position:absolute;bottom:10px;left:12px;right:12px">
+          <div style="height:3px;background:var(--bg5);border-radius:2px;overflow:hidden">
+            <div style="height:100%;background:${m.color};border-radius:2px;width:${Math.round(doneL/totalL*100)}%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="course-card-body">
+        <div class="course-card-meta">
+          <span class="badge badge-surface">${totalL} lessons</span>
+          <span style="font-size:11px;color:${m.color};font-weight:700">${doneL}/${totalL} complete</span>
+        </div>
+        <div class="course-card-title">${m.title}</div>
+        <div class="course-card-desc">${m.lessons[0].summary.substring(0, 85)}...</div>
+        <div class="course-card-footer">
+          <div class="course-meta-item">⏱ ${m.lessons.reduce((s,l)=>s+parseInt(l.time),0)} min total</div>
+          <div class="course-meta-item">${getDiffLabel(m.lessons[0].diff).split(' ')[0]} to ${getDiffLabel(m.lessons[m.lessons.length-1].diff).split(' ')[0]}</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderTestimonials() {
+  const el = document.getElementById('testi-grid');
+  if (!el) return;
+  const testimonials = [
+    { stars: 5, quote: "I was a barber for 10 years with zero tech background. Followed the 30-day plan exactly and closed my first dental client on day 23 at $1,800 + $950/month. The scripts work.", name: "Marcus V.", role: "LA — Joined March 2026", avi: "MV", aviColor: "var(--cyn-lo)", aviText: "var(--cyan)", result: "⚡ First client: Day 23 · $950/mo retainer" },
+    { stars: 5, quote: "4 clients by month 2, $6,200 MRR. The Elite coaching calls are worth it alone — got specific feedback on my cold emails that doubled my reply rate overnight.", name: "Sofia R.", role: "Los Angeles — Joined Feb 2026", avi: "SR", aviColor: "var(--ind-lo)", aviText: "var(--ind3)", result: "🚀 4 clients · $6,200 MRR · Month 2" },
+    { stars: 5, quote: "A community drop of a dental client in Century City — $2,400/month retainer. That one post paid for the Agency plan 32 times over. The referral network alone is worth the price.", name: "David K.", role: "Culver City, CA — Joined Jan 2026", avi: "DK", aviColor: "var(--amb-lo)", aviText: "var(--amber)", result: "💰 $2,400/mo client via community referral" },
+  ];
+  el.innerHTML = testimonials.map(t => `
+    <div class="testi-card fi fi-${testimonials.indexOf(t)+1}">
+      <div class="tc-stars">${'★'.repeat(t.stars)}</div>
+      <div class="tc-quote">"${t.quote}"</div>
+      <div class="tc-author" style="display:flex;align-items:center;gap:10px">
+        <div class="tc-avi" style="background:${t.aviColor};color:${t.aviText}">${t.avi}</div>
+        <div><div class="tc-name">${t.name}</div><div class="tc-role">${t.role}</div></div>
+      </div>
+      <div class="tc-result">${t.result}</div>
+    </div>`).join('');
+}
+
+/* ──────────────────────────────────────────────────
+   COURSES PAGE
+──────────────────────────────────────────────────── */
+let activeFilter = 'all';
+let searchQuery = '';
+
+function renderAllCourses() {
+  const el = document.getElementById('all-courses-grid');
+  if (!el) return;
+  let lessons = allLessons();
+  if (activeFilter !== 'all') {
+    if (['beginner','intermediate','advanced'].includes(activeFilter)) {
+      lessons = lessons.filter(l => l.diff === activeFilter);
+    } else if (['make','n8n','zapier','agents','sales','ghl'].includes(activeFilter)) {
+      lessons = lessons.filter(l => l.tags.includes(activeFilter));
+    }
+  }
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase();
+    lessons = lessons.filter(l => l.title.toLowerCase().includes(q) || l.sub.toLowerCase().includes(q) || l.summary.toLowerCase().includes(q));
+  }
+  el.innerHTML = lessons.map(lesson => {
+    const mod = getModule(lesson.id);
+    const isDone = ST.done.has(lesson.id);
+    return `<div class="course-card card-hover ${lesson.locked && !ST.plan ? 'locked' : ''}" onclick="openLesson('${lesson.id}')">
+      <div class="course-card-thumb" style="background:linear-gradient(135deg,var(--bg3),var(--bg4))">
+        <div class="course-card-thumb-overlay">
+          <div class="course-card-thumb-icon">${mod ? mod.icon : '📚'}</div>
+        </div>
+        ${isDone ? '<div style="position:absolute;top:10px;left:10px;background:var(--grn-lo);border:1px solid var(--grn-md);color:var(--green);font-size:11px;font-weight:700;padding:3px 9px;border-radius:100px">✓ Done</div>' : ''}
+      </div>
+      <div class="course-card-body">
+        <div class="course-card-meta">
+          <span class="badge badge-surface" style="font-size:10px">${mod ? mod.title.split(' ')[0] : 'Module'}</span>
+          <span style="font-size:11px;font-weight:700;color:${getDiffColor(lesson.diff)}">${getDiffLabel(lesson.diff)}</span>
+          <span style="font-size:11px;color:var(--t4)">⏱ ${lesson.time}</span>
+        </div>
+        <div class="course-card-title">${lesson.title}</div>
+        <div class="course-card-desc">${lesson.sub}</div>
+        <div class="course-card-footer">
+          <div style="display:flex;gap:6px;flex-wrap:wrap">${lesson.tags.slice(0,3).map(t => `<span style="font-size:10px;background:var(--bg4);color:var(--t4);padding:2px 7px;border-radius:4px;border:1px solid var(--line)">${t}</span>`).join('')}</div>
+          <button class="btn btn-sm ${isDone ? 'btn-surface' : 'btn-ind'}" style="font-size:11px">${isDone ? 'Review' : lesson.locked && !ST.plan ? '🔒 Upgrade' : 'Start →'}</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  if (!lessons.length) {
+    el.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--t3)">No lessons match your filter. <button class="btn btn-ghost btn-sm" style="margin-left:8px" onclick="filterCourses(\'all\',document.getElementById(\'fb-all\'))">Clear filter</button></div>';
+  }
+}
+
+function filterCourses(filter, btn, query) {
+  if (filter === 'search') { searchQuery = query || ''; }
+  else { activeFilter = filter; searchQuery = ''; document.getElementById('course-search').value = ''; }
+  // Update button states
+  if (btn) {
+    document.querySelectorAll('#filter-btns .btn').forEach(b => { b.className = b.className.replace('btn-ind', 'btn-surface'); });
+    btn.className = btn.className.replace('btn-surface', 'btn-ind');
+  }
+  renderAllCourses();
+}
+
+/* ──────────────────────────────────────────────────
+   LESSON PLAYER
+──────────────────────────────────────────────────── */
+function openLesson(lid) {
+  ST.curLesson = lid; save();
+  nav('lesson');
+}
+
+function renderLessonPlayer() {
+  renderPlaylistSidebar();
+  renderLessonContent();
+}
+
+function renderPlaylistSidebar() {
+  const el = document.getElementById('playlist-content');
+  if (!el) return;
+  const done = ST.done.size;
+  const pct = Math.round(done / TOTAL * 100);
+  document.getElementById('playlist-prog').style.width = pct + '%';
+  document.getElementById('playlist-prog-txt').textContent = done + '/' + TOTAL;
+  el.innerHTML = MODULES.map((mod, mi) => {
+    const mDone = mod.lessons.filter(l => ST.done.has(l.id)).length;
+    const isOpen = mod.lessons.find(l => l.id === ST.curLesson);
+    return `<div class="playlist-module ${isOpen ? 'open' : ''}" id="pm-${mod.id}">
+      <div class="playlist-module-head" onclick="toggleModule('pm-${mod.id}')">
+        <div class="pmh-num">${String(mi+1).padStart(2,'0')}</div>
+        <div class="pmh-title">${mod.title}</div>
+        <div class="pmh-count">${mDone}/${mod.lessons.length}</div>
+        <div class="pmh-arrow">▾</div>
+      </div>
+      <div class="playlist-lessons">
+        ${mod.lessons.map((l, li) => {
+          const isDone = ST.done.has(l.id);
+          const isActive = l.id === ST.curLesson;
+          const isLocked = l.locked && !ST.plan;
+          return `<div class="playlist-lesson ${isActive ? 'active' : ''} ${isDone && !isActive ? '' : ''}" onclick="${isLocked ? "openModal('pro')" : `selectLesson('${l.id}')`}">
+            <div class="pl-check ${isDone ? 'done' : ''}">${isDone ? '✓' : (li + 1)}</div>
+            <div class="pl-title">${l.title}</div>
+            <div class="pl-time">${l.time}</div>
+            ${isLocked ? '<div class="pl-lock">🔒</div>' : ''}
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleModule(id) {
+  document.getElementById(id)?.classList.toggle('open');
+}
+
+function selectLesson(lid) {
+  ST.curLesson = lid; save();
+  renderPlaylistSidebar();
+  renderLessonContent();
+  document.getElementById('lesson-main-content')?.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderLessonContent() {
+  const el = document.getElementById('lesson-main-content');
+  if (!el) return;
+  const lesson = getLesson(ST.curLesson);
+  if (!lesson) return;
+  const mod = getModule(ST.curLesson);
+  const isDone = ST.done.has(lesson.id);
+  const qa = ST.quiz[lesson.id];
+  const all = allLessons();
+  const idx = all.findIndex(l => l.id === ST.curLesson);
+  const isLocked = lesson.locked && !ST.plan;
+  const hasPro = ST.plan === 'pro' || ST.plan === 'elite';
+
+  if (isLocked) {
+    el.innerHTML = `<div class="lesson-inner" style="padding:60px 40px;text-align:center">
+      <div style="font-size:52px;margin-bottom:20px">🔒</div>
+      <div style="font-family:var(--f-head);font-size:30px;font-weight:800;letter-spacing:-.5px;margin-bottom:10px">Premium Lesson</div>
+      <p style="font-size:15px;color:var(--t2);max-width:400px;margin:0 auto 28px;line-height:1.75">This lesson is available on Builder and Agency plans. Upgrade to unlock all 48 lessons, live build sessions, and the full resource library.</p>
+      <button class="btn btn-ind btn-lg" onclick="openModal('pro')">Upgrade to Builder — 7 Days Free →</button>
+    </div>`;
+    return;
+  }
+
+  el.innerHTML = `
+    <div style="max-width:780px;padding:36px 40px 80px">
+      <div class="lesson-breadcrumb">
+        <span onclick="nav('courses')" style="cursor:pointer;color:var(--t3)">Courses</span>
+        <span class="sep">›</span>
+        <span style="color:${mod ? mod.color : 'var(--ind3)'}">${mod ? mod.title : ''}</span>
+        <span class="sep">›</span>
+        <span>Lesson ${idx + 1}</span>
+      </div>
+      <div class="lesson-title-bar">
+        <div style="font-family:var(--f-mono);font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:${mod ? mod.color : 'var(--ind3)'};margin-bottom:10px;display:inline-block;background:${mod ? mod.colorLo : 'var(--ind-lo)'};padding:4px 12px;border-radius:100px">${mod ? mod.title.split(' ').slice(0,2).join(' ') : 'Module'}</div>
+        <div class="lesson-title">${lesson.title}</div>
+        <div style="font-size:15px;color:var(--t2);margin-bottom:14px">${lesson.sub}</div>
+        <div class="lesson-meta-row">
+          <span class="lesson-tag">⏱ ${lesson.time}</span>
+          <span class="lesson-tag" style="color:${getDiffColor(lesson.diff)}">${getDiffLabel(lesson.diff)}</span>
+          ${isDone ? '<span class="lesson-tag" style="color:var(--green);border-color:rgba(16,185,129,.2)">✓ Complete</span>' : ''}
+          ${lesson.tags.map(t => `<span class="lesson-tag">${t}</span>`).join('')}
+        </div>
+      </div>
+
+      <!-- VIDEO PLAYER -->
+      <div class="lesson-section">
+        <div class="lesson-section-title">Video Lesson</div>
+        <div class="video-wrap" id="video-wrap-${lesson.id}">
+          <div class="video-overlay" id="video-overlay-${lesson.id}" data-lid="${lesson.id}" data-ytid="${lesson.youtube}" onclick="playVideo(this.dataset.lid,this.dataset.ytid)">
+            <div style="text-align:center">
+              <div class="play-btn">▶</div>
+              <div style="margin-top:14px;font-size:13px;color:rgba(255,255,255,.7)">Click to play lesson</div>
+            </div>
+          </div>
+          <div id="video-embed-${lesson.id}" style="position:absolute;inset:0;display:none"></div>
+        </div>
+        <!-- Next lesson suggestion -->
+        ${idx < all.length - 1 ? `<div style="margin-top:12px;background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;display:flex;align-items:center;gap:12px">
+          <div style="font-size:11px;color:var(--t4);flex-shrink:0">▶ NEXT</div>
+          <div style="flex:1">
+            <div style="font-size:12px;color:var(--t3)">Up next in this module</div>
+            <div style="font-size:13px;font-weight:600;color:var(--t1)">${all[idx+1].title}</div>
+          </div>
+          <button class="btn btn-surface btn-sm" onclick="selectLesson('${all[idx+1].id}')">Watch next →</button>
+        </div>` : ''}
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="lesson-section">
+        <div class="lesson-section-title">Overview</div>
+        <div class="lesson-highlight"><p>${lesson.summary}</p></div>
+      </div>
+
+      <!-- USE CASE -->
+      <div class="lesson-section">
+        <div class="lesson-section-title">Real-World Use Case</div>
+        <div class="use-case-card">
+          <div class="ucc-label">📊 Real Result</div>
+          <div class="ucc-body">${lesson.useCase}</div>
+        </div>
+      </div>
+
+      <!-- STEPS -->
+      <div class="lesson-section">
+        <div class="lesson-section-title">Implementation Guide</div>
+        <div class="lesson-steps-list">
+          ${lesson.steps.map((s, i) => `
+          <div class="lesson-step">
+            <div class="step-num">${i+1}</div>
+            <p>${s}</p>
+          </div>`).join('')}
+        </div>
+      </div>
+
+      <!-- CODE -->
+      ${lesson.codeSnippet ? `<div class="lesson-section">
+        <div class="lesson-section-title">Code / Configuration</div>
+        <div class="code-block">${lesson.codeSnippet.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
+      </div>` : ''}
+
+      <!-- QUIZ -->
+      <div class="lesson-section">
+        <div class="lesson-section-title">Knowledge Check</div>
+        <div class="use-case-card">
+          <div class="ucc-title" style="margin-bottom:14px">${lesson.quiz.q}</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            ${lesson.quiz.opts.map((opt, i) => {
+              let cls = 'btn btn-surface btn-sm';
+              let style = 'justify-content:flex-start;gap:8px;text-align:left;width:100%;padding:10px 14px;font-size:13px;';
+              if (qa) {
+                if (i === lesson.quiz.correct) { style += 'background:var(--grn-lo);border-color:var(--grn-md);color:var(--green);'; }
+                else if (i === qa.sel) { style += 'background:var(--red-lo);border-color:rgba(239,68,68,.2);color:var(--red);'; }
+              }
+              return `<button class="${cls}" style="${style}" onclick="answerQuiz('${lesson.id}',${i})" ${qa ? 'disabled' : ''}>
+                <span style="width:20px;height:20px;border-radius:50%;background:var(--bg5);display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">${String.fromCharCode(65+i)}</span>
+                ${opt}
+              </button>`;
+            }).join('')}
+          </div>
+          ${qa ? `<div style="margin-top:12px;padding:12px 14px;border-radius:var(--r-sm);font-size:13px;line-height:1.65;${qa.sel === lesson.quiz.correct ? 'background:var(--grn-lo);border:1px solid var(--grn-md);color:var(--green)' : 'background:var(--bg4);border:1px solid var(--line);color:var(--t2)'}">
+            ${qa.sel === lesson.quiz.correct ? '✓ Correct — ' : '✗ Not quite — '}${lesson.quiz.exp}
+          </div>` : ''}
+        </div>
+      </div>
+
+      <!-- NAV -->
+      <div class="lesson-nav-btns">
+        ${idx > 0 ? `<button class="btn btn-ghost" onclick="selectLesson('${all[idx-1].id}')">← Previous</button>` : '<span></span>'}
+        <div style="display:flex;gap:10px">
+          ${!isDone ? `<button class="btn btn-ind" onclick="markLessonDone('${lesson.id}')">✓ Mark Complete</button>` : `<button class="btn btn-surface" onclick="markLessonUndone('${lesson.id}')">Undo complete</button>`}
+          ${idx < all.length - 1 ? `<button class="btn btn-surface" onclick="selectLesson('${all[idx+1].id}')">Next Lesson →</button>` : `<button class="btn btn-ind" onclick="nav('dashboard')">🏆 Finish Course</button>`}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function playVideo(lid, ytId) {
+  if (!ytId || ytId.length < 5) return;
+  const overlay = document.getElementById('video-overlay-' + lid);
+  const embed   = document.getElementById('video-embed-' + lid);
+  if (overlay) overlay.style.display = 'none';
+  if (embed) {
+    embed.style.display = 'block';
+    const src = 'https://www.youtube-nocookie.com/embed/' + ytId + '?autoplay=1&rel=0&modestbranding=1';
+    embed.innerHTML = '<iframe src="' + src + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:var(--r-lg)"></iframe>';
+  }
+}
+
+function answerQuiz(lid, sel) {
+  const lesson = getLesson(lid);
+  if (!lesson || ST.quiz[lid]) return;
+  ST.quiz[lid] = { sel };
+  if (sel === lesson.quiz.correct) {
+    ST.done.add(lid);
+    save();
+    updateNavState();
+  }
+  save();
+  renderLessonContent();
+  renderPlaylistSidebar();
+}
+
+function markLessonDone(lid) {
+  ST.done.add(lid); save();
+  updateNavState(); renderPlaylistSidebar(); renderLessonContent();
+}
+function markLessonUndone(lid) {
+  ST.done.delete(lid); save();
+  updateNavState(); renderPlaylistSidebar(); renderLessonContent();
+}
+
+/* ──────────────────────────────────────────────────
+   ROADMAP PAGE
+──────────────────────────────────────────────────── */
+function renderRoadmap() {
+  const el = document.getElementById('roadmap-timeline');
+  if (!el) return;
+  const items = [
+    { date: 'Live Now', title: 'Foundations of AI Automation', desc: '7 lessons covering Make.com, n8n basics, and your first 3 sellable automations. The complete week-1 foundation.', pills: ['Make.com','OpenAI API','Lead Follow-Up','Reminders','Review Bot'], status: 'live' },
+    { date: 'Live Now', title: 'n8n & Advanced Workflows', desc: 'n8n deep-dive, AI Agent nodes, webhook mastery, and multi-app integrations at scale.', pills: ['n8n','AI Agents','Webhooks','Scale'], status: 'live' },
+    { date: 'Live Now', title: 'GoHighLevel & CRM Mastery', desc: 'Complete GHL setup, snapshot system, and the Make.com + GHL power combination for client delivery.', pills: ['GoHighLevel','Snapshots','CRM','Pipelines'], status: 'live' },
+    { date: 'Live Now', title: 'AI Agents & Zapier', desc: 'Zapier for non-technical clients, multi-step AI reasoning chains, and advanced OpenAI integrations.', pills: ['Zapier','AI Agents','GPT-4','Vision'], status: 'live' },
+    { date: 'Live Now', title: 'Sales & Client Acquisition', desc: 'Productizing your service, cold email that converts, discovery call scripts, and objection handling.', pills: ['Cold Email','Discovery Calls','Objections','Pricing'], status: 'live' },
+    { date: 'Live Now', title: 'Agency Scaling & Systems', desc: 'GHL snapshot deployment, VA hiring playbook, and the path from $10K to $100K MRR.', pills: ['Snapshots','VA Hiring','$100K Path'], status: 'live' },
+    { date: 'July 2026', title: 'Voiceflow & AI Chatbots', desc: 'Build no-code AI chatbots for dental and real estate clients. Upsell existing clients with a new $500/mo service line.', pills: ['Voiceflow','Chatbots','AI Voice'], status: 'soon' },
+    { date: 'August 2026', title: 'Retell AI — Voice Agents', desc: 'AI phone agents that answer calls, qualify leads, and book appointments. The most impressive demo you\'ll ever show a client.', pills: ['Voice AI','Phone Agents','Lead Qualifying'], status: 'soon' },
+    { date: 'September 2026', title: 'Advanced n8n: RAG & Memory', desc: 'Retrieval-augmented generation, persistent memory for AI agents, and building automation systems that genuinely learn from your client\'s data.', pills: ['RAG','Vector DBs','Memory','Advanced'], status: 'coming' },
+    { date: 'Q4 2026', title: 'White-Label & SaaS Revenue', desc: 'Building a recurring SaaS layer on top of your agency — white-label GHL, proprietary templates, and passive revenue streams.', pills: ['White-Label','SaaS','Passive Income'], status: 'coming' },
+  ];
+  el.innerHTML = items.map(item => `
+    <div class="rt-item">
+      <div class="rt-dot ${item.status}"></div>
+      <div class="rt-date">${item.date}</div>
+      <div class="rt-title">${item.title} ${item.status === 'live' ? '<span style="font-size:11px;background:var(--grn-lo);border:1px solid var(--grn-md);color:var(--green);padding:2px 8px;border-radius:100px;font-family:var(--f-mono);vertical-align:middle">LIVE</span>' : item.status === 'soon' ? '<span style="font-size:11px;background:var(--ind-lo);border:1px solid rgba(91,94,244,.2);color:var(--ind3);padding:2px 8px;border-radius:100px;font-family:var(--f-mono);vertical-align:middle">COMING SOON</span>' : ''}</div>
+      <div class="rt-desc">${item.desc}</div>
+      <div class="rt-pills">${item.pills.map(p => `<span class="rt-pill">${p}</span>`).join('')}</div>
+    </div>`).join('');
+}
+
+/* ──────────────────────────────────────────────────
+   SEARCH
+──────────────────────────────────────────────────── */
+let searchFilter = 'all';
+
+function openSearch() {
+  document.getElementById('search-overlay').classList.add('open');
+  setTimeout(() => document.getElementById('search-input')?.focus(), 50);
+  runSearch('');
+}
+function closeSearch() {
+  document.getElementById('search-overlay').classList.remove('open');
+  document.getElementById('search-input').value = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSearch(); if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); openSearch(); } });
+document.getElementById('search-overlay').addEventListener('click', e => { if (e.target === document.getElementById('search-overlay')) closeSearch(); });
+
+function setSearchFilter(f, btn) {
+  searchFilter = f;
+  document.querySelectorAll('.search-filters .badge').forEach(b => b.className = 'badge badge-surface');
+  if (btn) btn.className = 'badge badge-ind';
+  runSearch(document.getElementById('search-input').value);
+}
+
+function runSearch(q) {
+  const el = document.getElementById('search-results-list');
+  if (!el) return;
+  let lessons = allLessons();
+  if (searchFilter !== 'all') lessons = lessons.filter(l => l.diff === searchFilter);
+  if (q) {
+    const lq = q.toLowerCase();
+    lessons = lessons.filter(l =>
+      l.title.toLowerCase().includes(lq) ||
+      l.sub.toLowerCase().includes(lq) ||
+      l.summary.toLowerCase().includes(lq) ||
+      l.tags.some(t => t.includes(lq))
+    );
+  }
+  if (!lessons.length) {
+    el.innerHTML = `<div class="search-empty">No lessons found for "${q}" — try a different search term.</div>`;
+    return;
+  }
+  el.innerHTML = lessons.slice(0, 8).map(l => {
+    const mod = getModule(l.id);
+    return `<div class="search-result-item" onclick="openLesson('${l.id}');closeSearch()">
+      <div class="sri-icon">${mod ? mod.icon : '📚'}</div>
+      <div>
+        <div class="sri-title">${l.title}</div>
+        <div class="sri-meta">${mod ? mod.title : ''} · ${l.time} · ${getDiffLabel(l.diff)}</div>
+      </div>
+      <div style="font-size:11px;color:var(--ind3);font-family:var(--f-mono);flex-shrink:0">${ST.done.has(l.id) ? '✓ Done' : '→ Start'}</div>
+    </div>`;
+  }).join('');
+}
+
+/* ──────────────────────────────────────────────────
+   BILLING TOGGLE
+──────────────────────────────────────────────────── */
+function setBilling(type, btn) {
+  document.querySelectorAll('.tog-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const isAnnual = type === 'annual';
+  document.querySelectorAll('.pm').forEach(el => el.style.display = isAnnual ? 'none' : '');
+  document.querySelectorAll('.pa').forEach(el => el.style.display = isAnnual ? '' : 'none');
+}
+
+/* ──────────────────────────────────────────────────
+   CHECKOUT MODAL
+──────────────────────────────────────────────────── */
+const PDATA = {
+  starter: { name: 'Launch Plan', icon: '🚀', bg: 'var(--grn-lo)', priceM: 47, priceA: 39, chipClass: 'plan-launch', chipTxt: 'LAUNCH', submitBg: 'var(--green)', cardReq: false },
+  pro:     { name: 'Builder Plan', icon: '⚡', bg: 'var(--ind-lo)', priceM: 97, priceA: 81, chipClass: 'plan-builder', chipTxt: 'BUILDER', submitBg: 'var(--ind)', cardReq: true },
+  elite:   { name: 'Agency Plan', icon: '🏆', bg: 'var(--amb-lo)', priceM: 197, priceA: 164, chipClass: 'plan-agency', chipTxt: 'AGENCY', submitBg: 'var(--amber)', cardReq: true },
+};
+let checkPlan = 'pro';
+
+function openModal(plan) {
+  checkPlan = plan;
+  const p = PDATA[plan];
+  const isAnnual = document.querySelector('.tog-btn.active')?.textContent?.includes('Annual');
+  const price = isAnnual ? `$${p.priceA}/month, billed annually` : `$${p.priceM}/month after 7-day free trial`;
+  document.getElementById('m-title').textContent = 'Start ' + p.name;
+  document.getElementById('m-plan-name').textContent = p.name;
+  document.getElementById('m-plan-price').textContent = price + ' · Cancel anytime';
+  document.getElementById('m-icon').style.background = p.bg;
+  document.getElementById('m-icon').textContent = p.icon;
+  document.getElementById('m-chip').textContent = p.chipTxt;
+  document.getElementById('m-chip').className = 'nav-plan ' + p.chipClass;
+  const btn = document.getElementById('m-submit');
+  btn.style.background = p.submitBg;
+  btn.style.color = plan === 'elite' ? '#fff' : '#fff';
+  btn.style.border = 'none';
+  btn.textContent = p.cardReq ? 'Start Free Trial →' : 'Start Free — No Card →';
+  document.getElementById('modal-bg').classList.add('open');
+}
+function closeModal() { document.getElementById('modal-bg').classList.remove('open'); }
+document.getElementById('modal-bg').addEventListener('click', e => { if (e.target === document.getElementById('modal-bg')) closeModal(); });
+
+function completePurchase() {
+  const name = document.getElementById('m-name').value.trim();
+  const email = document.getElementById('m-email').value.trim();
+  if (!name || !email) { alert('Please enter your name and email to continue.'); return; }
+  ST.plan = checkPlan; ST.name = name; ST.email = email; save();
+  closeModal(); updateNavState(); nav('dashboard');
+}
+
+/* ──────────────────────────────────────────────────
+   DASHBOARD
+──────────────────────────────────────────────────── */
+function refreshDashboard() {
+  updateNavState();
+  updateDashSidebar();
+  buildDashOverview();
+  buildDashCourses();
+  buildContinueList();
+  updateCommunityAccess();
+  updateRevenueAccess();
+  buildResourcesGrid();
+  buildCertificate();
+}
+
+function updateDashSidebar() {
+  const initials = ST.name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase() || 'W';
+  document.getElementById('ds-avi').textContent = initials;
+  document.getElementById('ds-name').textContent = ST.name;
+  const pLabels = { starter: 'Launch Plan', pro: 'Builder Plan', elite: 'Agency Plan' };
+  const pChips = { starter: 'plan-launch', pro: 'plan-builder', elite: 'plan-agency' };
+  const planChip = document.getElementById('ds-plan-chip');
+  if (ST.plan) { planChip.textContent = pLabels[ST.plan]; planChip.className = 'nav-plan ' + pChips[ST.plan]; }
+  else { planChip.textContent = 'FREE'; planChip.className = 'nav-plan plan-free'; }
+  const pct = Math.round(ST.done.size / TOTAL * 100);
+  document.getElementById('ds-prog-pct').textContent = pct + '%';
+  document.getElementById('ds-prog-fill').style.width = pct + '%';
+  document.getElementById('ds-badge-lessons').textContent = ST.done.size + '/48';
+  const upsell = document.getElementById('ds-upsell-area');
+  if (ST.plan === 'elite') upsell.innerHTML = '<div style="text-align:center;padding:12px 0;font-size:12px;font-weight:700;color:var(--green)">✓ Agency Member — Full Access</div>';
+  else if (ST.plan === 'pro') upsell.innerHTML = `<div class="ds-upgrade-card"><div class="ds-upgrade-title">Upgrade to Agency</div><div class="ds-upgrade-desc">Unlock coaching, referral network, and Slack access.</div><button class="ds-upgrade-btn" onclick="openModal('elite')">Upgrade →</button></div>`;
+  else upsell.innerHTML = `<div class="ds-upgrade-card"><div class="ds-upgrade-title">Unlock Builder</div><div class="ds-upgrade-desc">Get community, live sessions, and Make.com templates.</div><button class="ds-upgrade-btn" onclick="openModal('pro')">Upgrade →</button></div>`;
+  // Lock badges
+  const hasPro = ST.plan === 'pro' || ST.plan === 'elite';
+  if (hasPro) {
+    const cl = document.getElementById('comm-lock-badge');
+    const rl = document.getElementById('rev-lock-badge');
+    if (cl) cl.style.display = 'none';
+    if (rl) rl.style.display = 'none';
+  }
+}
+
+function buildDashOverview() {
+  const done = ST.done.size;
+  document.getElementById('ov-done').textContent = done;
+  const phaseNames = ['Foundations', 'Productize', 'Sell', 'Scale'];
+  document.getElementById('ov-phase').textContent = phaseNames[Math.min(Math.floor(done / 12), 3)];
+  const subs = [
+    '0 lessons in — your first client is 30 days away.',
+    'Great start — keep building.',
+    'Halfway through the foundations!',
+    'Phase 2 coming up.',
+    'Phase 2 underway.',
+    'Getting close to selling phase.',
+    'Almost time to sell!',
+    'Phase 3 — you\'re in selling mode.',
+    'Keep pushing!',
+    'Final push!',
+  ];
+  document.getElementById('dv-greet-p').textContent = subs[Math.min(done, subs.length - 1)];
+  const next = allLessons().find(l => !ST.done.has(l.id)) || allLessons()[TOTAL - 1];
+  const mod = getModule(next.id);
+  if (document.getElementById('cc-icon')) document.getElementById('cc-icon').textContent = next.icon || '📚';
+  if (document.getElementById('cc-module')) document.getElementById('cc-module').textContent = mod ? mod.title : '';
+  if (document.getElementById('cc-title')) document.getElementById('cc-title').textContent = next.title;
+  if (document.getElementById('cc-desc')) document.getElementById('cc-desc').textContent = next.sub;
+  const pct = Math.round(done / TOTAL * 100);
+  if (document.getElementById('cc-prog-fill')) document.getElementById('cc-prog-fill').style.width = pct + '%';
+  if (document.getElementById('cc-prog-text')) document.getElementById('cc-prog-text').textContent = done === 0 ? 'Start this lesson →' : pct + '% complete';
+  // Recent grid
+  const rg = document.getElementById('dash-recent-grid');
+  if (rg) rg.innerHTML = allLessons().slice(0, 6).map((l, i) => {
+    const isDone = ST.done.has(l.id);
+    return `<div class="rl-item ${isDone ? 'done' : ''}" onclick="openLesson('${l.id}')">
+      <div class="rl-num ${isDone ? 'rl-num-done' : 'rl-num-def'}">${isDone ? '✓' : (i + 1)}</div>
+      <div><div class="rl-title">${l.title}</div><div class="rl-meta">${l.time} · ${getDiffLabel(l.diff)}</div></div>
+    </div>`;
+  }).join('');
+  // Achievements
+  const ag = document.getElementById('achievements-grid');
+  if (ag) {
+    const achs = [
+      { icon: '🚀', name: 'First Launch', desc: 'Complete lesson 1', unlock: done >= 1 },
+      { icon: '⚡', name: 'Builder', desc: 'Complete 10 lessons', unlock: done >= 10 },
+      { icon: '💰', name: 'First Client', desc: 'Complete sales module', unlock: done >= 25 },
+      { icon: '🏆', name: 'Certified', desc: 'Complete all 48 lessons', unlock: done >= 48 },
+    ];
+    ag.innerHTML = achs.map(a => `
+      <div class="ach-item ${!a.unlock ? 'locked' : ''}">
+        <div class="ach-icon">${a.icon}</div>
+        <div class="ach-name">${a.name}</div>
+        <div class="ach-desc">${a.desc}</div>
+      </div>`).join('');
+  }
+}
+
+function buildDashCourses() {
+  const el = document.getElementById('dash-courses-grid');
+  if (!el) return;
+  el.innerHTML = MODULES.map(mod => {
+    const doneL = mod.lessons.filter(l => ST.done.has(l.id)).length;
+    const pct = Math.round(doneL / mod.lessons.length * 100);
+    return `<div class="course-card card-hover" onclick="nav('lesson')">
+      <div class="course-card-thumb" style="background:linear-gradient(135deg,var(--bg3),var(--bg4))">
+        <div class="course-card-thumb-overlay"><div class="course-card-thumb-icon">${mod.icon}</div></div>
+        <div style="position:absolute;bottom:10px;left:12px;right:12px">
+          <div style="height:3px;background:var(--bg5);border-radius:2px;overflow:hidden"><div style="height:100%;background:${mod.color};border-radius:2px;width:${pct}%"></div></div>
+        </div>
+      </div>
+      <div class="course-card-body">
+        <div class="course-card-meta"><span class="badge badge-surface">${mod.lessons.length} lessons</span><span style="font-size:11px;color:${mod.color};font-weight:700">${pct}% done</span></div>
+        <div class="course-card-title">${mod.title}</div>
+        <div class="course-card-footer">
+          <div class="progress-track" style="flex:1"><div class="progress-fill" style="width:${pct}%"></div></div>
+          <span style="font-size:12px;color:var(--t3)">${doneL}/${mod.lessons.length}</span>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function buildContinueList() {
+  const el = document.getElementById('continue-list');
+  if (!el) return;
+  const incomplete = allLessons().filter(l => !ST.done.has(l.id)).slice(0, 10);
+  el.innerHTML = incomplete.map(l => {
+    const mod = getModule(l.id);
+    return `<div class="rl-item" style="margin-bottom:8px" onclick="openLesson('${l.id}')">
+      <div class="rl-num rl-num-def">${mod ? mod.icon : '📚'}</div>
+      <div style="flex:1"><div class="rl-title">${l.title}</div><div class="rl-meta">${mod ? mod.title : ''} · ${l.time}</div></div>
+      <button class="btn btn-ind btn-sm">Start →</button>
+    </div>`;
+  }).join('') || '<div style="color:var(--t3);font-size:14px;padding:20px 0">🎉 All lessons complete! Check your certificate.</div>';
+}
+
+function updateCommunityAccess() {
+  const hasPro = ST.plan === 'pro' || ST.plan === 'elite';
+  const locked = document.getElementById('community-locked-msg');
+  const feed = document.getElementById('community-feed');
+  if (hasPro) {
+    if (locked) locked.style.display = 'none';
+    if (feed) feed.style.display = 'block';
+    buildCommunityFeed();
+  } else {
+    if (locked) locked.style.display = 'block';
+    if (feed) feed.style.display = 'none';
+  }
+}
+
+function buildCommunityFeed() {
+  const el = document.getElementById('community-feed');
+  if (!el) return;
+  const posts = [
+    { win: true, avi: 'SR', aviC: 'var(--ind-lo)', aviT: 'var(--ind3)', author: 'Sofia R.', time: '2 hours ago', body: 'Closed my 4th client today — West Hollywood dental practice, $2,200 setup + $1,400/month retainer. They found me via referral from client #2. The referral flywheel is REAL. Total MRR is now $6,200. Month 2.', likes: 47, replies: 12 },
+    { win: false, avi: 'MV', aviC: 'var(--cyn-lo)', aviT: 'var(--cyan)', author: 'Marcus V.', time: '5 hours ago', body: 'Question for people who\'ve closed real estate clients — how do you handle it when they want the automation connected to their MLS feed? Make.com module or custom webhook?', likes: 8, replies: 6 },
+    { win: true, avi: 'DK', aviC: 'var(--amb-lo)', aviT: 'var(--amber)', author: 'David K. · Agency', time: 'Yesterday', body: 'Agency referral drop: dental practice owner in Century City looking for AI automation. Budget confirmed $1,500–$2,500/mo. DM me if you want the intro — LA members only, first come first served.', likes: 31, replies: 9 },
+  ];
+  el.innerHTML = posts.map(p => `
+    <div class="community-post">
+      ${p.win ? '<div class="cp-win">🏆 WIN</div>' : ''}
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+        <div class="cp-avi" style="background:${p.aviC};color:${p.aviT}">${p.avi}</div>
+        <div><div class="cp-author">${p.author}</div><div class="cp-time">${p.time}</div></div>
+      </div>
+      <div class="cp-body">${p.body}</div>
+      <div class="cp-actions">
+        <span class="cp-action">❤️ ${p.likes}</span>
+        <span class="cp-action">💬 ${p.replies} replies</span>
+        <span class="cp-action">🔁 Share</span>
+      </div>
+    </div>`).join('');
+}
+
+function updateRevenueAccess() {
+  const hasPro = ST.plan === 'pro' || ST.plan === 'elite';
+  document.getElementById('rev-locked-msg').style.display = hasPro ? 'none' : 'block';
+  document.getElementById('rev-content').style.display = hasPro ? 'block' : 'none';
+  if (hasPro) { buildRevChart(); buildClientList(); }
+}
+
+function buildResourcesGrid() {
+  const el = document.getElementById('resources-grid');
+  if (!el) return;
+  const hasPro = ST.plan === 'pro' || ST.plan === 'elite';
+  const hasAgency = ST.plan === 'elite';
+  const resources = [
+    { icon: '📧', bg: 'var(--ind-lo)', title: 'Cold Email Scripts (6)', desc: 'Tested templates for dental and real estate. Copy, personalize, send.', tier: 'Free', locked: false },
+    { icon: '📞', bg: 'var(--cyn-lo)', title: 'Discovery Call Script', desc: 'Word-for-word call guide with diagnostic questions and objection responses.', tier: 'Free', locked: false },
+    { icon: '🏷️', bg: 'var(--amb-lo)', title: 'Agency Brand Kit', desc: 'Logo, colors, typography, and tone guide for your agency.', tier: 'Free', locked: false },
+    { icon: '⚙️', bg: 'var(--ind-lo)', title: 'Make.com Templates (10+)', desc: 'Import-ready scenario templates for dental, real estate, and more.', tier: 'Builder', locked: !hasPro },
+    { icon: '🖥️', bg: 'var(--grn-lo)', title: 'GoHighLevel Snapshot', desc: 'Deploy a fully configured dental practice setup in 8 minutes.', tier: 'Builder', locked: !hasPro },
+    { icon: '📊', bg: 'var(--amb-lo)', title: 'ROI Calculator + Pitch Deck', desc: 'Show clients their exact revenue loss live during your discovery call.', tier: 'Builder', locked: !hasPro },
+    { icon: '📝', bg: 'var(--ind-lo)', title: 'Client Contract Template', desc: 'Bonsai-ready 1-page contract with scope, pricing, and cancellation terms.', tier: 'Builder', locked: !hasPro },
+    { icon: '🚀', bg: 'var(--red-lo)', title: '$100K Scaling Playbook', desc: 'Advanced guide: team hiring, white-labeling, mid-market targeting.', tier: 'Agency', locked: !hasAgency },
+    { icon: '👥', bg: 'var(--cyn-lo)', title: 'VA Hiring Guide', desc: 'Where to hire, how to vet, what to delegate, and how to manage for scale.', tier: 'Agency', locked: !hasAgency },
+  ];
+  el.innerHTML = resources.map(r => `
+    <div class="res-card ${r.locked ? 'locked' : ''}" onclick="${r.locked ? "openModal('pro')" : "alert('In production, this opens or downloads the resource.')"}">
+      <div class="res-icon" style="background:${r.locked ? 'var(--bg4)' : r.bg}">${r.locked ? '🔒' : r.icon}</div>
+      <div>
+        <div class="res-title">${r.title}</div>
+        <div class="res-desc">${r.locked ? 'Upgrade to ' + r.tier + ' to unlock this resource.' : r.desc}</div>
+        <div style="margin-top:7px">
+          <span class="badge ${r.tier === 'Free' ? 'badge-grn' : r.tier === 'Builder' ? 'badge-ind' : 'badge-amb'}" style="font-size:10px">${r.tier}</span>
+          ${r.locked ? `<button onclick="event.stopPropagation();openModal('pro')" style="font-size:11px;background:none;border:1px solid var(--line2);color:var(--t3);padding:3px 9px;border-radius:var(--r-sm);cursor:pointer;margin-left:6px">Upgrade →</button>` : `<button onclick="event.stopPropagation();alert('Downloading...')" style="font-size:11px;background:var(--ind-lo);border:1px solid rgba(91,94,244,.2);color:var(--ind3);padding:3px 9px;border-radius:var(--r-sm);cursor:pointer;margin-left:6px">Access →</button>`}
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function buildCertificate() {
+  const done = ST.done.size;
+  const remaining = TOTAL - done;
+  const certLocked = document.getElementById('cert-locked');
+  if (certLocked) certLocked.style.display = done >= TOTAL ? 'none' : 'flex';
+  if (document.getElementById('cert-name')) document.getElementById('cert-name').textContent = ST.name || 'Your Name';
+  if (document.getElementById('cert-date')) document.getElementById('cert-date').textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  if (document.getElementById('cert-id')) document.getElementById('cert-id').textContent = Math.floor(Math.random() * 9000 + 1000);
+  if (document.getElementById('cert-remaining')) document.getElementById('cert-remaining').textContent = remaining;
+}
+
+/* Revenue Tracker */
+function buildRevChart() {
+  const el = document.getElementById('rev-chart');
+  if (!el) return;
+  const months = ['J','F','M','A','M','J','J','A','S','O','N','D'];
+  const now = new Date().getMonth();
+  const total = ST.clients.reduce((s, c) => s + (c.amount || 0), 0);
+  const maxV = Math.max(total || 1, 1000);
+  el.innerHTML = months.map((m, i) => {
+    const v = i < now ? Math.round(total * (i / now) * 0.75 + Math.random() * 200) : i === now ? total : 0;
+    return `<div class="rev-bar-col">
+      <div class="rev-bar ${i === now ? 'active' : ''}" style="height:${Math.max(5, Math.round(v / maxV * 80))}px"></div>
+      <div class="rev-bar-lbl">${m}</div>
+    </div>`;
+  }).join('');
+  const t = total.toLocaleString();
+  document.getElementById('rev-total').textContent = '$' + t;
+  document.getElementById('rev-ms-1').textContent = '$' + t;
+}
+
+function addRevClient() {
+  const name = document.getElementById('rev-client-name').value.trim();
+  const amount = parseInt(document.getElementById('rev-client-amt').value) || 0;
+  if (!name || !amount) { alert('Enter client name and monthly amount.'); return; }
+  ST.clients.push({ name, amount, date: new Date().toLocaleDateString() });
+  save();
+  document.getElementById('rev-client-name').value = '';
+  document.getElementById('rev-client-amt').value = '';
+  buildRevChart();
+  buildClientList();
+}
+
+function buildClientList() {
+  const el = document.getElementById('rev-client-list');
+  if (!el) return;
+  if (!ST.clients.length) { el.innerHTML = '<div style="font-size:13px;color:var(--t4);font-family:var(--f-mono);padding:10px 0">No clients yet — add your first above.</div>'; return; }
+  el.innerHTML = ST.clients.map((c, i) => `
+    <div class="client-row">
+      <div class="cr-avi">${c.name[0].toUpperCase()}</div>
+      <div class="cr-name">${c.name}</div>
+      <div style="font-size:11px;color:var(--t4)">Added ${c.date}</div>
+      <div class="cr-amt">$${(c.amount || 0).toLocaleString()}/mo</div>
+      <button onclick="removeClient(${i})" style="background:none;border:none;color:var(--t4);cursor:pointer;font-size:15px;padding:4px;transition:color .12s">✕</button>
+    </div>`).join('');
+}
+
+function removeClient(i) { ST.clients.splice(i, 1); save(); buildRevChart(); buildClientList(); }
+
+function showDashView(v) {
+  document.querySelectorAll('.dash-view').forEach(d => d.classList.remove('active'));
+  document.querySelectorAll('.ds-nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('dv-' + v)?.classList.add('active');
+  document.getElementById('dn-' + v)?.classList.add('active');
+  if (v === 'revenue') { buildRevChart(); buildClientList(); }
+  if (v === 'overview') buildDashOverview();
+}
+
+/* ──────────────────────────────────────────────────
+   EMAIL CAPTURE
+──────────────────────────────────────────────────── */
+function captureEmail() {
+  const email = document.getElementById('email-capture-input').value.trim();
+  if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
+  ST.email = email; save();
+  document.getElementById('email-capture-input').value = '';
+  alert('✓ You\'re subscribed! Weekly automation workflows starting next Tuesday.');
+}
+
+/* ──────────────────────────────────────────────────
+   SCROLL FADE-IN ANIMATIONS
+──────────────────────────────────────────────────── */
+function initFadeIns() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fi').forEach(el => observer.observe(el));
+}
+
+/* ──────────────────────────────────────────────────
+   KEYBOARD SHORTCUT DISPLAY
+──────────────────────────────────────────────────── */
+function showKeyboardHint() {
+  // Subtle Cmd+K hint in the search button
+  const btn = document.querySelector('.nav-search-btn');
+  if (btn) btn.title = 'Search (Cmd+K)';
+}
+
+/* ──────────────────────────────────────────────────
+   INITIALIZE
+──────────────────────────────────────────────────── */
+(function init() {
+  nav('home');
+  updateNavState();
+  showKeyboardHint();
+  // Observe elements for fade-in
+  setTimeout(initFadeIns, 100);
+})();
+
+</script>
+</body>
+</html>
